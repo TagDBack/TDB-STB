@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" path="res://scenes/ui/UI.tscn" id="3_5ai6d"]
 
 [sub_resource type="Environment" id="Environment_uup76"]
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_87c85"]
 
 [node name="Node3D" type="Node3D"]
 
@@ -23,3 +24,4 @@ transform = Transform3D(0.361901, 0, -0.932216, 0, 1, 0, 0.932216, 0, 0.361901, 
 environment = SubResource("Environment_uup76")
 
 [node name="UI" parent="." instance=ExtResource("3_5ai6d")]
+camera_attributes = SubResource("CameraAttributesPractical_87c85")
