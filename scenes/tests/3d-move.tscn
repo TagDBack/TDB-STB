@@ -7,14 +7,10 @@
 
 [node name="Spatial" type="Spatial" parent="."]
 
-[node name="KinematicBody" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.511409, 0, 0.109368 )
-
-[node name="Camera" type="Camera" parent="KinematicBody"]
-transform = Transform( 1, 0, 0, 0, 0.873611, 0.486625, 0, -0.486625, 0.873611, 0.0276041, 2.40692, 3.9449 )
-
 [node name="Area" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.75, 0 )
 
 [node name="StaticBody" parent="Area" instance=ExtResource( 2 )]
 transform = Transform( 5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0 )
+
+[node name="KinematicBody" parent="." instance=ExtResource( 1 )]
