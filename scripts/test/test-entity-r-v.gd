@@ -4,6 +4,7 @@ extends KinematicBody
 export (int) var movementSpeed = 14
 export (int) var sprintSpeedMult = 2
 export (int) var vDir = 0
+export (int) var hDir = 0
 
 # Export Z axis position
 
@@ -30,6 +31,14 @@ func get_input(delta):
 	
 	if Input.is_action_pressed("move_down"):
 		direction.z += 1
+		
+	if Input.is_action_pressed("move_left"): 
+		#direction.z -= 1
+		pass
+	
+	if Input.is_action_pressed("move_right"):
+		#direction.z += 1
+		pass
 	
 	if direction != Vector3.ZERO:
 		direction = direction.normalized()

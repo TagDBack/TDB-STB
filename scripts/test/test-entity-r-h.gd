@@ -3,7 +3,6 @@ extends KinematicBody
 
 export (int) var movementSpeed = 14
 export (int) var sprintSpeedMult = 2
-export (int) var vDir = 0
 export (int) var radiiFromPoint = 0
 
 var velocity = Vector3.ZERO
@@ -17,11 +16,13 @@ func _ready():
 
 func get_input(delta):
 	var speed = movementSpeed
-	var direction = Vector3.ZERO
 	
 	# Check Sprinting
 	if Input.is_action_pressed("move_sprint"):
 		speed = sprintSpeedMult * movementSpeed
+	
+	#Process Radial Speed
+	var angularV = radiiFromPoint/speed
 	
 	# Move Z
 	if Input.is_action_pressed("move_left"): 
@@ -32,8 +33,8 @@ func get_input(delta):
 		#direction.z += 1
 		pass
 	
-	if direction != Vector3.ZERO:
-		direction = direction.normalized()
+	#if direction != Vector3.ZERO:
+	#	direction = direction.normalized()
 		#$Pivot.look_at(translation + direction, Vector3.UP)
 	
 	# Vertical velocity
