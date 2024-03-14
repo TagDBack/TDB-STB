@@ -31,7 +31,14 @@ func _deffered_next_wave():
 	wave_number += 1
 	print(wave_number)
 	
-	wave_timer.start()
-	
-	
-	
+	if (wave_number % 5 == 0):
+		print("boss wave")
+		
+		# Do boss wave spawner here
+		yield(get_tree().create_timer(5.0), "timeout")
+		next_wave()
+	else:
+		print("normal wave")
+		
+		# Do normal wave spawner here
+		wave_timer.start()
