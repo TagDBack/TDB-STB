@@ -1,10 +1,10 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=2 format=3 uid="uid://bx1sonric2the"]
 
-[ext_resource path="res://scripts/wave-timer.gd" type="Script" id=1]
+[ext_resource type="Script" path="res://scripts/wave-timer.gd" id="1"]
 
 [node name="WaveTimer" type="Timer"]
 wait_time = 5.0
 one_shot = true
-script = ExtResource( 1 )
+script = ExtResource("1")
 
 [connection signal="timeout" from="." to="." method="_on_WaveTimer_timeout"]

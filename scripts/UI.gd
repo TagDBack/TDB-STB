@@ -1,9 +1,4 @@
-extends CharacterBody3D
-
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+extends Control
 
 
 # Called when the node enters the scene tree for the first time.
@@ -12,5 +7,6 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _process(delta):
+	$"Wave Number".text = "Wave " + str(WaveManager.wave_number)
+	$"Wave Time Left".text = "Until Next Wave " + str(WaveManager.wave_timer.time_left)
