@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://cibl1xqyo1ppq"]
+
+[ext_resource type="Script" path="res://scripts/UI.gd" id="1_f4acd"]
+
+[sub_resource type="FontFile" id="FontFile_nsrtm"]
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[sub_resource type="Theme" id="Theme_y36hm"]
+default_font = SubResource("FontFile_nsrtm")
+
+[node name="UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_y36hm")
+script = ExtResource("1_f4acd")
+
+[node name="Wave Number" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_right = 270.0
+offset_bottom = 106.0
+text = "Wave Number"
+
+[node name="Wave Time Left" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 413.0
+offset_top = 1.0
+offset_right = 794.0
+offset_bottom = 79.0
+text = "5 Seconds"
