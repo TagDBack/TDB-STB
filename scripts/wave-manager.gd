@@ -1,6 +1,7 @@
 extends Node
 
 var is_start = false
+@export var is_endless_mode = false
 @export var wave_number = 0
 @export var wave_timer: Timer = null
 @export var multiplier: int = 0
@@ -34,7 +35,9 @@ func _deffered_next_wave():
 	print(wave_number)
 	calculate_multiplier()
 	
-	if (wave_number % 5 == 0):
+	if (wave_number >= 16):
+		endless_mode_next_wave()
+	elif (wave_number % 5 == 0):
 		print("boss wave")
 		
 		# Do boss wave spawner here
@@ -44,6 +47,27 @@ func _deffered_next_wave():
 		# Delete until this
 	else:
 		print("normal wave")
+		
+		# Do normal wave spawner here
+		wave_timer.start()
+		
+func endless_mode_next_wave():
+	call_deferred("_deferred_endless_mode_next_wave")
+	
+func _deferred_endless_mode_next_wave():
+	#
+	# Call different function if desired
+	#
+	if (wave_number % 5 == 0):
+		print("endless mode boss wave")
+		
+		# Do boss wave spawner here
+		# Delete this if the boss has been implemented
+		await get_tree().create_timer(5.0).timeout
+		boss_death()
+		# Delete until this
+	else:
+		print("endless mode normal wave")
 		
 		# Do normal wave spawner here
 		wave_timer.start()
