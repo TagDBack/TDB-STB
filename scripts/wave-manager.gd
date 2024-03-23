@@ -1,6 +1,7 @@
 extends Node
 
 var is_start = false
+@export var is_boss_wave = false
 @export var is_endless_mode = false
 @export var wave_number = 0
 @export var wave_timer: Timer = null
@@ -61,6 +62,7 @@ func _deferred_endless_mode_next_wave():
 	# Call different function if desired
 	#
 	if (wave_number % 5 == 0):
+		is_boss_wave = true
 		print("endless mode boss wave")
 		
 		# Do boss wave spawner here
@@ -69,6 +71,7 @@ func _deferred_endless_mode_next_wave():
 		boss_death()
 		# Delete until this
 	else:
+		is_boss_wave = false
 		print("endless mode normal wave")
 		
 		# Do normal wave spawner here
@@ -79,6 +82,7 @@ func boss_death():
 	
 func _deferred_boss_death():
 	if wave_number % 5 == 0:
+		is_boss_wave = false
 		next_wave()
 
 func calculate_multiplier():
