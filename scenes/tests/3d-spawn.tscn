@@ -1,0 +1,30 @@
+[gd_scene load_steps=7 format=3 uid="uid://c3ycyeolmx4n4"]
+
+[ext_resource type="PackedScene" uid="uid://dq2ntdi7sxjas" path="res://assets/objects/3d/Test-cube/cube.glb" id="1_2oafi"]
+[ext_resource type="PackedScene" uid="uid://lwpqpcomo7ls" path="res://assets/objects/3d/Test-tv/scene.gltf" id="2_qtsll"]
+[ext_resource type="PackedScene" uid="uid://bwdvfyyau5fr7" path="res://scenes/miscs/spawner.tscn" id="3_67cou"]
+[ext_resource type="PackedScene" uid="uid://bv0o51ve4kuvl" path="res://scenes/entities/test-entity.tscn" id="4_brpjl"]
+
+[sub_resource type="Environment" id="Environment_ebw1g"]
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_87c85"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.873611, 0.486625, 0, -0.486625, 0.873611, 0, 2.95886, 4.05427)
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="cube" parent="." instance=ExtResource("1_2oafi")]
+transform = Transform3D(5, 0, 0, 0, 0.25, 0, 0, 0, 5, 0.541559, -0.638748, -0.42892)
+
+[node name="scene" parent="." instance=ExtResource("2_qtsll")]
+transform = Transform3D(0.361901, 0, -0.932216, 0, 1, 0, 0.932216, 0, 0.361901, -2.30204, 0, -0.329175)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ebw1g")
+camera_attributes = SubResource("CameraAttributesPractical_87c85")
+
+[node name="Spawner" parent="." instance=ExtResource("3_67cou")]
+enemy_pack = ExtResource("4_brpjl")
