@@ -1,8 +1,16 @@
+<<<<<<< HEAD
 [gd_scene load_steps=5 format=3 uid="uid://crcmpn008lb1x"]
 
 [ext_resource type="PackedScene" uid="uid://lwpqpcomo7ls" path="res://assets/objects/3d/Test-tv/scene.gltf" id="1"]
 [ext_resource type="PackedScene" uid="uid://dq2ntdi7sxjas" path="res://assets/objects/3d/Test-cube/cube.glb" id="2"]
 [ext_resource type="PackedScene" path="res://scenes/ui/UI.tscn" id="3_5ai6d"]
+=======
+[gd_scene load_steps=5 format=3 uid="uid://bbsd70q4j57ce"]
+
+[ext_resource type="PackedScene" uid="uid://lwpqpcomo7ls" path="res://assets/objects/3d/Test-tv/scene.gltf" id="1"]
+[ext_resource type="PackedScene" uid="uid://dq2ntdi7sxjas" path="res://assets/objects/3d/Test-cube/cube.glb" id="2"]
+[ext_resource type="PackedScene" uid="uid://cibl1xqyo1ppq" path="res://scenes/ui/UI.tscn" id="3_5ai6d"]
+>>>>>>> 8255495 (Update wave ui, make things easier)
 
 [sub_resource type="Environment" id="Environment_uup76"]
 

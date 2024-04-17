@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 [gd_scene load_steps=4 format=3 uid="uid://b01ym6nqxr6r"]
 
 [ext_resource type="PackedScene" path="res://scenes/entities/test-entity.tscn" id="1"]
+=======
+[gd_scene load_steps=4 format=3 uid="uid://ddrc47eke25ql"]
+
+[ext_resource type="PackedScene" uid="uid://c7vjdrshtqjrx" path="res://scenes/entities/test-entity.tscn" id="1"]
+>>>>>>> 8255495 (Update wave ui, make things easier)
 [ext_resource type="PackedScene" uid="uid://dq2ntdi7sxjas" path="res://assets/objects/3d/Test-cube/cube.glb" id="2"]
 
 [sub_resource type="Environment" id="Environment_owxx6"]

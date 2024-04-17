@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 [gd_scene load_steps=3 format=3 uid="uid://bjfqv73uonjjm"]
+=======
+[gd_scene load_steps=3 format=3 uid="uid://cibl1xqyo1ppq"]
+>>>>>>> 8255495 (Update wave ui, make things easier)
 
 [ext_resource type="Script" path="res://scripts/UI.gd" id="1_f4acd"]
 [ext_resource type="FontFile" uid="uid://qntjjujpcwg5" path="res://assets/ui/fonts/Skranji/Skranji-Regular.ttf" id="2_i6a24"]
