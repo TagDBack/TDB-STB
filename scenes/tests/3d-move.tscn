@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://ddrc47eke25ql"]
+[gd_scene load_steps=4 format=3 uid="uid://b01ym6nqxr6r"]
 
-[ext_resource type="PackedScene" uid="uid://c7vjdrshtqjrx" path="res://scenes/entities/test-entity.tscn" id="1"]
+[ext_resource type="PackedScene" path="res://scenes/entities/test-entity.tscn" id="1"]
 [ext_resource type="PackedScene" uid="uid://dq2ntdi7sxjas" path="res://assets/objects/3d/Test-cube/cube.glb" id="2"]
 
 [sub_resource type="Environment" id="Environment_owxx6"]
