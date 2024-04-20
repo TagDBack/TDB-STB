@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://c3ycyeolmx4n4"]
+[gd_scene load_steps=8 format=3 uid="uid://c3ycyeolmx4n4"]
 
 [ext_resource type="PackedScene" uid="uid://dq2ntdi7sxjas" path="res://assets/objects/3d/Test-cube/cube.glb" id="1_2oafi"]
 [ext_resource type="PackedScene" uid="uid://lwpqpcomo7ls" path="res://assets/objects/3d/Test-tv/scene.gltf" id="2_qtsll"]
 [ext_resource type="PackedScene" uid="uid://bwdvfyyau5fr7" path="res://scenes/miscs/spawner.tscn" id="3_67cou"]
-[ext_resource type="PackedScene" uid="uid://bv0o51ve4kuvl" path="res://scenes/entities/test-entity.tscn" id="4_brpjl"]
+[ext_resource type="PackedScene" uid="uid://eapxb2w7pn6k" path="res://scenes/entities/test-enemy.tscn" id="4_5s41u"]
+[ext_resource type="PackedScene" uid="uid://bprfcwfw815l8" path="res://scenes/entities/test-plane.tscn" id="5_ajb3s"]
 
 [sub_resource type="Environment" id="Environment_ebw1g"]
 
@@ -27,4 +28,11 @@ environment = SubResource("Environment_ebw1g")
 camera_attributes = SubResource("CameraAttributesPractical_87c85")
 
 [node name="Spawner" parent="." instance=ExtResource("3_67cou")]
-enemy_pack = ExtResource("4_brpjl")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.67075, 0)
+enemy_pack = ExtResource("4_5s41u")
+
+[node name="test-plane" parent="." instance=ExtResource("5_ajb3s")]
+transform = Transform3D(1.00675, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.300598, 0)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
