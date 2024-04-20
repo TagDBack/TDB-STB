@@ -35,6 +35,7 @@ func _deffered_next_wave():
 	wave_number += 1
 	print(wave_number)
 	calculate_multiplier()
+	SpawnManager.new_wave(wave_number)
 	
 	if (wave_number >= 16):
 		endless_mode_next_wave()
