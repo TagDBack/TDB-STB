@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://fr46ub7r6o7u"]
+
+[ext_resource type="PackedScene" uid="uid://c8o5kwnn5dlyr" path="res://scenes/entities/melee-weapon/test-melee-weapon.tscn" id="1_egd5g"]
+
+[sub_resource type="Environment" id="Environment_8wg7n"]
+
+[node name="3d-melee-weapon" type="Node3D"]
+
+[node name="test-melee-weapon" parent="." instance=ExtResource("1_egd5g")]
+visible = false
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_8wg7n")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.873611, 0.486625, 0, -0.486625, 0.873611, 0, 2.95886, 4.05427)

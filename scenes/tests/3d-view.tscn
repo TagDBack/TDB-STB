@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://dl0wb0jysdmrb"]
+[gd_scene load_steps=5 format=3 uid="uid://dl0wb0jysdmrb"]
 
 [ext_resource type="PackedScene" uid="uid://lwpqpcomo7ls" path="res://assets/objects/3d/Test-tv/scene.gltf" id="1"]
 [ext_resource type="PackedScene" uid="uid://dq2ntdi7sxjas" path="res://assets/objects/3d/Test-cube/cube.glb" id="2"]
