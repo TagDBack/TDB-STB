@@ -2,4 +2,4 @@
 Slide Trigger Bayonet project by Tag D Back Team
 
 # Godot Version:
-Godot 4.0.1
+Godot 4.2.2
