@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://lwpqpcomo7ls" path="res://assets/objects/3d/Test-tv/scene.gltf" id="1"]
 [ext_resource type="PackedScene" uid="uid://dq2ntdi7sxjas" path="res://assets/objects/3d/Test-cube/cube.glb" id="2"]
-[ext_resource type="PackedScene" path="res://scenes/ui/UI.tscn" id="3_5ai6d"]
+[ext_resource type="PackedScene" uid="uid://bjfqv73uonjjm" path="res://scenes/ui/UI.tscn" id="3_5ai6d"]
 
 [sub_resource type="Environment" id="Environment_uup76"]
 

@@ -6,7 +6,7 @@ extends Node3D
 @export var delay_batch_spawn = 0.1
 @export var min_radius = 0
 @export var max_radius = 5
-@export var origin = Vector3(0, 0, 0)
+@export var origin = Vector3(0, 10, 0)
 
 func _ready():
 	randomize()
