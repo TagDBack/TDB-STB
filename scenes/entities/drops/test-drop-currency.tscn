@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://c161koehrfngc"]
+
+[ext_resource type="Texture2D" uid="uid://cc4bqcg1dq0v1" path="res://assets/objects/2d/Classic 100/item100.png" id="1_wclf3"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_d5y4y"]
+size = Vector3(0.828247, 0.1, 0.848511)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ao1fc"]
+transparency = 1
+albedo_texture = ExtResource("1_wclf3")
+
+[sub_resource type="QuadMesh" id="QuadMesh_yjv3o"]
+lightmap_size_hint = Vector2i(7, 7)
+material = SubResource("StandardMaterial3D_ao1fc")
+orientation = 1
+
+[node name="test-drop-currency" type="Node3D"]
+transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, 0, 0, 0)
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0253296, 0, -0.002136)
+shape = SubResource("BoxShape3D_d5y4y")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("QuadMesh_yjv3o")
