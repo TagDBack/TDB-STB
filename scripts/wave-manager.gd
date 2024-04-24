@@ -1,6 +1,7 @@
 extends Node
 
 var is_start = false
+var is_boss_wave = false
 @export var wave_number = 0
 @export var wave_timer: Timer = null
 @export var multiplier: int = 0
