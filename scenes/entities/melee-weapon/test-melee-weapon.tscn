@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://c8o5kwnn5dlyr"]
+
+[ext_resource type="Script" path="res://scripts/melee-weapon.gd" id="1_m0ah0"]
+[ext_resource type="Texture2D" uid="uid://diww7cproa2jn" path="res://assets/objects/2d/Classic 100/item1.png" id="2_qv171"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_d5y4y"]
+size = Vector3(0.5, 0.1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ao1fc"]
+transparency = 1
+albedo_texture = ExtResource("2_qv171")
+
+[sub_resource type="QuadMesh" id="QuadMesh_yjv3o"]
+lightmap_size_hint = Vector2i(7, 7)
+material = SubResource("StandardMaterial3D_ao1fc")
+orientation = 1
+
+[node name="test-melee-weapon" type="Node3D"]
+transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, 0, 0, 0)
+script = ExtResource("1_m0ah0")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_d5y4y")
+
+[node name="Combo1" type="Timer" parent="."]
+wait_time = 0.4
+one_shot = true
+
+[node name="Combo2" type="Timer" parent="."]
+wait_time = 0.4
+one_shot = true
+
+[node name="Cooldown" type="Timer" parent="."]
+wait_time = 0.4
+one_shot = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
+mesh = SubResource("QuadMesh_yjv3o")
+
+[connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]
