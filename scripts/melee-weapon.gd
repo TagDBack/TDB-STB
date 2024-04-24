@@ -33,7 +33,6 @@ func _physics_process(delta):
 		cooldown.start()
 	elif Input.is_action_just_pressed("action_melee") and cooldown.is_stopped():
 		change_visibility(true)
-		print(self.global_position)
 		#self.visible = true
 		is_rotating = true
 		rotate_to = Basis(Vector3.DOWN, deg_to_rad(120)) * self.transform.basis
