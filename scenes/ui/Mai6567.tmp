@@ -1,0 +1,83 @@
+[gd_scene load_steps=3 format=3 uid="uid://wjgxgtqn7gwh"]
+
+[ext_resource type="Script" path="res://scripts/main-menu.gd" id="1_n78kf"]
+[ext_resource type="Texture2D" uid="uid://b8355e2ehjsqf" path="res://scenes/ui/yggdrasil-tree-of-life-celtic-symbol-nature-nordic-sticker.png" id="1_shysx"]
+
+[node name="MainMenu" type="Node2D"]
+position = Vector2(0, -2)
+
+[node name="Logo" type="Sprite2D" parent="."]
+position = Vector2(278, 277)
+texture = ExtResource("1_shysx")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_n78kf")
+
+[node name="NewGameButton" type="Button" parent="Control"]
+offset_left = 713.0
+offset_top = 12.0
+offset_right = 1029.0
+offset_bottom = 99.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/NewGameButton"]
+offset_left = 120.0
+offset_top = 30.0
+offset_right = 316.0
+offset_bottom = 84.0
+text = "New Game"
+
+[node name="ContinueButton" type="Button" parent="Control"]
+offset_left = 713.0
+offset_top = 121.0
+offset_right = 1029.0
+offset_bottom = 208.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/ContinueButton"]
+offset_left = 120.0
+offset_top = 30.0
+offset_right = 316.0
+offset_bottom = 84.0
+text = "New Game"
+
+[node name="ShopButton" type="Button" parent="Control"]
+offset_left = 714.0
+offset_top = 232.0
+offset_right = 1030.0
+offset_bottom = 319.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/ShopButton"]
+offset_left = 120.0
+offset_top = 30.0
+offset_right = 316.0
+offset_bottom = 84.0
+text = "New Game"
+
+[node name="SettingsButton" type="Button" parent="Control"]
+offset_left = 713.0
+offset_top = 343.0
+offset_right = 1029.0
+offset_bottom = 430.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/SettingsButton"]
+offset_left = 120.0
+offset_top = 30.0
+offset_right = 316.0
+offset_bottom = 84.0
+text = "New Game"
+
+[node name="QuitButton" type="Button" parent="Control"]
+offset_left = 713.0
+offset_top = 452.0
+offset_right = 1029.0
+offset_bottom = 539.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/QuitButton"]
+offset_left = 120.0
+offset_top = 30.0
+offset_right = 316.0
+offset_bottom = 84.0
+text = "New Game"
