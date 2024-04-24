@@ -12,11 +12,15 @@ map_data = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1.8337, 0.798458, 0, -0.798458, 1.8337, 0, 0, 0, 2, 0, 0, 0)
+transform = Transform3D(1.8337, 0.798458, 0, -0.798458, 1.8337, 0, 0, 0, 2, -26.8092, 11.6737, 0)
+shape = SubResource("HeightMapShape3D_6gdt3")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1.81917, -0.831036, 0, 0.831036, 1.81917, 0, 0, 0, 2, 80.6948, 11.6081, 0)
 shape = SubResource("HeightMapShape3D_6gdt3")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 25.2744, 0, 0)
 shape = SubResource("HeightMapShape3D_6gdt3")
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("1_lpd7q")]
