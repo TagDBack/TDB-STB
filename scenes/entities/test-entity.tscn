@@ -22,6 +22,7 @@ current = true
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Entity/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 0.939693, -0.34202, 0, 0.34202, 0.939693, 0, 2.89282e-08, -0.6618)
+light_energy = 0.4
 
 [node name="DDT" type="Timer" parent="."]
 wait_time = 0.5

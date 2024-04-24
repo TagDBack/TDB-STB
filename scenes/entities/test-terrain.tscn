@@ -1,0 +1,30 @@
+[gd_scene load_steps=7 format=3 uid="uid://bi30ydvmuhf0q"]
+
+[ext_resource type="Shader" path="res://scenes/entities/test-terrain.gdshader" id="1_f1xo0"]
+[ext_resource type="Texture2D" uid="uid://dcbgtku41umpy" path="res://assets/textures/test-terrain2.jpg" id="3_t0ctl"]
+[ext_resource type="Script" path="res://scenes/entities/terrain.gd" id="4_vgpit"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h2a8w"]
+render_priority = 0
+shader = ExtResource("1_f1xo0")
+shader_parameter/heightmap_ratio = 1.0
+shader_parameter/_a = ExtResource("3_t0ctl")
+shader_parameter/heightmap = ExtResource("3_t0ctl")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_yit7d"]
+subdivide_width = 64
+subdivide_depth = 64
+
+[sub_resource type="HeightMapShape3D" id="HeightMapShape3D_oafq6"]
+
+[node name="terrain" type="Node3D"]
+
+[node name="terrain" type="MeshInstance3D" parent="."]
+material_override = SubResource("ShaderMaterial_h2a8w")
+mesh = SubResource("PlaneMesh_yit7d")
+script = ExtResource("4_vgpit")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="terrain"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain/StaticBody3D"]
+shape = SubResource("HeightMapShape3D_oafq6")
