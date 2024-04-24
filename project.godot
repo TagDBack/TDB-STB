@@ -14,6 +14,10 @@ config/name="TDB-STB"
 config/features=PackedStringArray("4.0")
 config/icon="res://icon.png"
 
+[autoload]
+
+WaveManager="*res://scripts/wave-manager.gd"
+
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true
@@ -65,6 +69,10 @@ action_melee={
 "events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":2,"pressed":false,"double_click":false,"script":null)
 ]
 }
+
+[mono]
+
+project/assembly_name="TDB-STB"
 
 [physics]
 
