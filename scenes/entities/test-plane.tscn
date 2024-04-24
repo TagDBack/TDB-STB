@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bprfcwfw815l8"]
+
+[node name="test-plane" type="CSGBox3D"]
+transform = Transform3D(1.00675, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+use_collision = true
+size = Vector3(10, 0.1, 10)

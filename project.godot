@@ -17,6 +17,7 @@ config/icon="res://icon.png"
 [autoload]
 
 WaveManager="*res://scripts/wave-manager.gd"
+SpawnManager="*res://scripts/spawn-manager.gd"
 
 [gui]
 
