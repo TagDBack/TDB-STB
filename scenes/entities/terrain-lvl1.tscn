@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://d1nvnbi1xcgl5"]
+
+[ext_resource type="Shader" path="res://assets/textures/terrain-lvl1.gdshader" id="1_rw8gk"]
+[ext_resource type="Texture2D" uid="uid://bmjwmnktxe6cd" path="res://assets/textures/terrain-crater.jpg" id="2_gsu5j"]
+[ext_resource type="Script" path="res://scripts/terrain.gd" id="3_4yxkr"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h2a8w"]
+render_priority = 0
+shader = ExtResource("1_rw8gk")
+shader_parameter/heightmap_ratio = 1.0
+shader_parameter/_a = ExtResource("2_gsu5j")
+shader_parameter/heightmap = ExtResource("2_gsu5j")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_yit7d"]
+subdivide_width = 64
+subdivide_depth = 64
+
+[sub_resource type="HeightMapShape3D" id="HeightMapShape3D_oafq6"]
+
+[node name="terrain" type="Node3D"]
+
+[node name="terrain" type="MeshInstance3D" parent="."]
+material_override = SubResource("ShaderMaterial_h2a8w")
+mesh = SubResource("PlaneMesh_yit7d")
+script = ExtResource("3_4yxkr")
+level = "res://assets/textures/terrain-crater.jpg"
+
+[node name="StaticBody3D" type="StaticBody3D" parent="terrain"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
+shape = SubResource("HeightMapShape3D_oafq6")

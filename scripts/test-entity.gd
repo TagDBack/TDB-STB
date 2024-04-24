@@ -77,13 +77,13 @@ func sliding(delta):
 	var xSlope = get_floor_normal().x
 	var zSlope = get_floor_normal().z
 	var yTilt = abs(get_floor_normal().y)
-	print("(x,y,z)")
-	print(get_floor_normal())
+	#print("(x,y,z)")
+	#print(get_floor_normal())
 	if xSlope != 0:
 		slideDir.x += (baseAccel*xSlope)/(yTilt+1)*sRate
 	if zSlope != 0:
 		slideDir.z += (baseAccel*zSlope)/(yTilt+1)*sRate
-	print(slideDir)
+	#print(slideDir)
 	return slideDir
 
 func moving(delta):
@@ -124,3 +124,7 @@ func _physics_process(delta):
 
 func _on_ddt_timeout():
 	dTime = true
+
+
+func _on_enemy_death(exp):
+	pass # Replace with function body.
