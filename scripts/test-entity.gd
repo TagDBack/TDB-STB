@@ -117,6 +117,10 @@ func moving(delta):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
+	var viewport_size = Vector2(get_viewport().content_scale_size)
+	var mouse_position = get_viewport().get_mouse_position()
+	var look_at_position = - viewport_size / 2 + mouse_position
+	$Object.look_at(Vector3(self.position.x + look_at_position.x, self.position.y, self.position.z + look_at_position.y))
 	var dir = Vector3()
 	
 	moving(delta)
