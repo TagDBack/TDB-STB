@@ -8,7 +8,7 @@ var is_boss_wave = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():	
-	start()
+	pass
 
 func start():
 	call_deferred("_deferred_start")
@@ -16,6 +16,10 @@ func start():
 func _deferred_start():
 	if is_start:
 		return
+		
+	var ui = ResourceLoader.load("res://scenes/ui/UI.tscn")
+	var ui_node = ui.instantiate()
+	get_tree().root.add_child(ui_node)
 	
 	is_start = true
 	multiplier = 1

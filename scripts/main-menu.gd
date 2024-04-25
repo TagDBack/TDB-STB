@@ -18,6 +18,7 @@ func _ready():
 	
 func _on_new_game_pressed():
 	print("New Game")
+	WaveManager.start()
 	get_tree().change_scene_to_file("res://scenes/levels/level1.tscn")
 	
 func _on_meta_clicked(arg):
