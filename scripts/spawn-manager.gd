@@ -10,7 +10,9 @@ func new_wave(wave_number):
 	
 func _deferred_new_wave(wave_number):
 	if wave_number == 1:
-		spawn("res://scenes/levels/level1.tscn")
+		spawn("res://scenes/levels/wave1.tscn")
+	elif wave_number == 2:
+		spawn("res://scenes/levels/wave2.tscn")
 	else:
 		pass
 

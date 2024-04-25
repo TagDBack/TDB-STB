@@ -32,7 +32,8 @@ func _physics_process(delta):
 		combo2.stop()
 		cooldown.start()
 	elif Input.is_action_just_pressed("action_melee") and cooldown.is_stopped():
-		self.visible = true
+		change_visibility(true)
+		#self.visible = true
 		is_rotating = true
 		rotate_to = Basis(Vector3.DOWN, deg_to_rad(120)) * self.transform.basis
 		combo1.start()
@@ -41,9 +42,15 @@ func _physics_process(delta):
 
 func _on_cooldown_timeout():
 	self.transform = origin_rotation
-	self.visible = false
+	change_visibility(false)
+	#self.visible = false
 	is_rotating = false
+
+func change_visibility(trufals):
+	self.visible = trufals
+	self.get_node("Area3D").monitoring = trufals
+	
 	
 func _enemy_on_body_entered(body_entered):
-	if body_entered.is_class("enemy"):
-		body_entered.damaged(damage)
+	if body_entered is enemy:
+		body_entered.take_damage(damage)

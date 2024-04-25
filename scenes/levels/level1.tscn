@@ -1,23 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://brxgcbxyerq6m"]
+[gd_scene load_steps=3 format=3 uid="uid://brxgcbxyerq6m"]
 
-[ext_resource type="PackedScene" uid="uid://bwdvfyyau5fr7" path="res://scenes/miscs/spawner.tscn" id="1_s1vxr"]
-[ext_resource type="PackedScene" uid="uid://eapxb2w7pn6k" path="res://scenes/entities/test-enemy.tscn" id="2_almsh"]
 [ext_resource type="PackedScene" uid="uid://d1nvnbi1xcgl5" path="res://scenes/entities/terrain-lvl1.tscn" id="3_qx5xr"]
 [ext_resource type="PackedScene" uid="uid://og50iljiyo3u" path="res://scenes/entities/test-entity.tscn" id="4_xul82"]
 
 [node name="level1" type="Node3D"]
-
-[node name="Spawner" parent="." instance=ExtResource("1_s1vxr")]
-enemy_pack = ExtResource("2_almsh")
-total_spawn_number = 50
-total_batch = 10
-delay_batch_spawn = 0.2
-
-[node name="Spawner2" parent="." instance=ExtResource("1_s1vxr")]
-enemy_pack = ExtResource("2_almsh")
-total_spawn_number = 200
-delay_batch_spawn = 0.4
-min_radius = 2
 
 [node name="terrain" parent="." instance=ExtResource("3_qx5xr")]
 transform = Transform3D(60, 0, 0, 0, 60, 0, 0, 0, 60, 0, 0, 0)

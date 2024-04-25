@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://og50iljiyo3u"]
+[gd_scene load_steps=5 format=3 uid="uid://og50iljiyo3u"]
 
-[ext_resource type="PackedScene" uid="uid://jj3g4xpldjeo" path="res://assets/objects/3d/Test-tv/scene.gltf" id="1"]
+[ext_resource type="PackedScene" uid="uid://lwpqpcomo7ls" path="res://assets/objects/3d/Test-tv/scene.gltf" id="1"]
 [ext_resource type="Script" path="res://scripts/test-entity.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://c8o5kwnn5dlyr" path="res://scenes/entities/melee-weapon/test-melee-weapon.tscn" id="3_p6osh"]
 
 [sub_resource type="SphereShape3D" id="1"]
 
@@ -9,6 +10,8 @@
 script = ExtResource("2")
 
 [node name="Object" parent="." instance=ExtResource("1")]
+
+[node name="test-melee-weapon" parent="Object" instance=ExtResource("3_p6osh")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)

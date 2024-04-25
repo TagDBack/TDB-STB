@@ -21,7 +21,7 @@ mesh = SubResource("BoxMesh_s04gy")
 surface_material_override/0 = SubResource("StandardMaterial3D_ciy6v")
 
 [node name="dead" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 0.1
 one_shot = true
 
 [connection signal="timeout" from="dead" to="." method="_on_dead_timeout"]

@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://wjgxgtqn7gwh"]
 
 [ext_resource type="Script" path="res://scripts/main-menu.gd" id="1_n78kf"]
-[ext_resource type="Texture2D" uid="uid://b8355e2ehjsqf" path="res://scenes/ui/yggdrasil-tree-of-life-celtic-symbol-nature-nordic-sticker.png" id="1_shysx"]
-[ext_resource type="FontFile" uid="uid://wrhtnsje2mdt" path="res://assets/ui/fonts/Caesar_Dressing/CaesarDressing-Regular.ttf" id="3_vcdub"]
+[ext_resource type="Texture2D" uid="uid://bfncsp812o3ns" path="res://scenes/ui/yggdrasil-tree-of-life-celtic-symbol-nature-nordic-sticker.png" id="1_shysx"]
+[ext_resource type="FontFile" uid="uid://uc6m74naoicj" path="res://assets/ui/fonts/Caesar_Dressing/CaesarDressing-Regular.ttf" id="3_vcdub"]
 
 [node name="MainMenu" type="Node2D"]
 position = Vector2(0, -2)
@@ -19,6 +19,7 @@ offset_bottom = 40.0
 script = ExtResource("1_n78kf")
 
 [node name="NewGameButton" type="Button" parent="Control"]
+layout_mode = 0
 offset_left = 713.0
 offset_top = 12.0
 offset_right = 1029.0
@@ -26,6 +27,7 @@ offset_bottom = 99.0
 mouse_default_cursor_shape = 2
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Control/NewGameButton"]
+layout_mode = 0
 offset_left = 120.0
 offset_top = 30.0
 offset_right = 210.0
@@ -36,6 +38,7 @@ bbcode_enabled = true
 text = "[url=new_game]New Game[/url]"
 
 [node name="ContinueButton" type="Button" parent="Control"]
+layout_mode = 0
 offset_left = 713.0
 offset_top = 121.0
 offset_right = 1029.0
@@ -43,6 +46,7 @@ offset_bottom = 208.0
 mouse_default_cursor_shape = 2
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Control/ContinueButton"]
+layout_mode = 0
 offset_left = 120.0
 offset_top = 30.0
 offset_right = 196.0
@@ -53,6 +57,7 @@ bbcode_enabled = true
 text = "[url=continue]Continue[/url]"
 
 [node name="ShopButton" type="Button" parent="Control"]
+layout_mode = 0
 offset_left = 714.0
 offset_top = 232.0
 offset_right = 1030.0
@@ -60,6 +65,7 @@ offset_bottom = 319.0
 mouse_default_cursor_shape = 2
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Control/ShopButton"]
+layout_mode = 0
 offset_left = 138.0
 offset_top = 33.0
 offset_right = 174.0
@@ -70,6 +76,7 @@ bbcode_enabled = true
 text = "[url=shop]Shop[/url]"
 
 [node name="SettingsButton" type="Button" parent="Control"]
+layout_mode = 0
 offset_left = 713.0
 offset_top = 343.0
 offset_right = 1029.0
@@ -77,6 +84,7 @@ offset_bottom = 430.0
 mouse_default_cursor_shape = 2
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Control/SettingsButton"]
+layout_mode = 0
 offset_left = 126.0
 offset_top = 30.0
 offset_right = 187.0
@@ -87,6 +95,7 @@ bbcode_enabled = true
 text = "[url=settings]Settings[/url]"
 
 [node name="QuitButton" type="Button" parent="Control"]
+layout_mode = 0
 offset_left = 713.0
 offset_top = 452.0
 offset_right = 1029.0
@@ -94,6 +103,7 @@ offset_bottom = 539.0
 mouse_default_cursor_shape = 2
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Control/QuitButton"]
+layout_mode = 0
 offset_left = 120.0
 offset_top = 30.0
 offset_right = 205.0

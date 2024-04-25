@@ -1,5 +1,7 @@
 extends RigidBody3D
 
+class_name enemy
+
 @export var health = 10
 @export var armor = 0
 @export var speed = 10
