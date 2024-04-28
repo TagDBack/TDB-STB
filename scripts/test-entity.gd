@@ -1,5 +1,7 @@
 extends CharacterBody3D
 
+var isLookMouse = false
+
 # Movement
 var baseSpeed = 10
 @export var sRate = 1.0
@@ -9,7 +11,8 @@ var friction = 20
 
 # Dash 
 var dTime = false
-var dash = 10
+var dash = 30
+@onready var dashtimer = $DashCooldown
 
 # Sliding
 var baseAccel = 2
@@ -31,12 +34,9 @@ var damage = 10
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	motion_mode = MOTION_MODE_GROUNDED 
 	# Player only
-	floor_max_angle = 1.0472
 	max_slides = 18
-	# Enemy only
-	# floor_block_on_wall = false
+	add_to_group("player")
 
 
 func inputs():
@@ -48,28 +48,31 @@ func inputs():
 
 	dir.normalized()
 
-	# Dash mechanic?
-	if Input.is_action_just_pressed("move_sprint"):
-		dir = dashing(dir)
-
 	# Sprinting
-	isSprinting = Input.is_action_pressed("move_sprint")
+	if Input.is_action_pressed("move_sprint"):
+		isSprinting = Input.is_action_pressed("move_sprint")
+		
+		# Dash mechanic?
+		dir = dashing(dir)
 
 	# Sliding
 	isSliding = Input.is_action_pressed("move_slide")
+	
+	if Input.is_action_just_pressed("action_toggle_view"):
+		isLookMouse = not(isLookMouse)
+		print(isLookMouse)
 
 	return dir
 
 func dashing(dir):
-	if !dTime:
-		$DDT.start()
-	else:
-		dTime = false
-
-	if Input.is_action_just_released("move_sprint"):
-		if Input.is_action_just_pressed("move_sprint") and !dTime:
-			dir *= dash
-
+	if Input.is_action_just_pressed("move_dash") and not(dTime):
+		var dashVec = dir.normalized() * dash
+		print(dashVec)
+		
+		dir += dashVec
+		dTime = true
+		dashtimer.start()
+	
 	return dir
 
 func sliding(delta):
@@ -88,12 +91,8 @@ func sliding(delta):
 
 func moving(delta):
 	var dir = inputs()
-
-	# Gravity
-	if !is_on_floor():
-		dir.y -= gravity
-
-	if dir == Vector3.ZERO:
+	
+	if dir == Vector3.ZERO or dir == null:
 		if velocity.length() > (friction * delta):
 			velocity -= velocity.normalized() * (friction * delta)
 		else:
@@ -120,15 +119,25 @@ func _physics_process(delta):
 	var viewport_size = Vector2(get_viewport().content_scale_size)
 	var mouse_position = get_viewport().get_mouse_position()
 	var look_at_position = - viewport_size / 2 + mouse_position
-	$Object.look_at(Vector3(self.position.x + look_at_position.x, self.position.y, self.position.z + look_at_position.y))
-	var dir = Vector3()
 	
+	#print(isLookMouse)
+	if isLookMouse:
+		$Entity.look_at(Vector3(self.position.x + look_at_position.x, self.position.y, self.position.z + look_at_position.y))
+	elif velocity.length() > 0:
+		$Entity.look_at(velocity + position)
+	
+	if velocity.length() > baseSpeed*sRate/2:
+		$pointer.visible = true
+		$pointer.look_at(velocity + position)
+	else:
+		$pointer.visible = false
+
+	# Gravity
+	if !is_on_floor():
+		velocity.y -= gravity
+		
 	moving(delta)
 	move_and_slide()
 
 func _on_ddt_timeout():
-	dTime = true
-
-
-func _on_enemy_death(exp):
-	pass # Replace with function body.
+	dTime = false

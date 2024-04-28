@@ -9,8 +9,10 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ciy6v"]
 albedo_color = Color(0.556863, 0.0901961, 0.215686, 1)
 
-[node name="test-enemy" type="RigidBody3D"]
+[node name="enemy" type="CharacterBody3D" groups=["enemies"]]
 collision_layer = 2
+floor_block_on_wall = false
+safe_margin = 0.1
 script = ExtResource("1_eomrg")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
