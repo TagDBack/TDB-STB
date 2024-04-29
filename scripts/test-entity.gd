@@ -31,12 +31,13 @@ var damage = 10
 
 @export var size = 1.0
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# Player only
 	max_slides = 18
 	add_to_group("player")
+	
+	#call_deferred_thread_group("enemies")
 
 
 func inputs():
@@ -49,9 +50,8 @@ func inputs():
 	dir.normalized()
 
 	# Sprinting
+	isSprinting = Input.is_action_pressed("move_sprint")
 	if Input.is_action_pressed("move_sprint"):
-		isSprinting = Input.is_action_pressed("move_sprint")
-		
 		# Dash mechanic?
 		dir = dashing(dir)
 
@@ -60,7 +60,7 @@ func inputs():
 	
 	if Input.is_action_just_pressed("action_toggle_view"):
 		isLookMouse = not(isLookMouse)
-		print(isLookMouse)
+		#print(isLookMouse)
 
 	return dir
 
