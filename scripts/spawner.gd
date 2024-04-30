@@ -13,7 +13,6 @@ func _ready():
 	repeat()
 
 func spawn(number_spawn_now):
-	print("spawn")
 	call_deferred("_deferred_spawn", number_spawn_now)
 
 func _deferred_spawn(number_spawn_now):

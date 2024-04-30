@@ -1,12 +1,17 @@
-[gd_scene load_steps=7 format=3 uid="uid://c3qvpnvmg1pxw"]
+[gd_scene load_steps=8 format=3 uid="uid://c3qvpnvmg1pxw"]
 
 [ext_resource type="PackedScene" uid="uid://og50iljiyo3u" path="res://scenes/entities/test-entity.tscn" id="1"]
-[ext_resource type="PackedScene" uid="uid://dq2ntdi7sxjas" path="res://assets/objects/3d/Test-cube/cube.glb" id="2"]
+[ext_resource type="PackedScene" uid="uid://2ts1sycn0632" path="res://assets/objects/3d/Test-cube/cube.glb" id="2"]
 [ext_resource type="PackedScene" uid="uid://eapxb2w7pn6k" path="res://scenes/entities/test-enemy.tscn" id="3_cgpl1"]
 [ext_resource type="Script" path="res://scripts/drop_manager.gd" id="4_bgmqv"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wy7p7"]
 size = Vector3(10.136, 0.745117, 10.0595)
+
+[sub_resource type="HeightMapShape3D" id="HeightMapShape3D_21bh2"]
+map_width = 10
+map_depth = 10
+map_data = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 
 [sub_resource type="Environment" id="Environment_owxx6"]
 
@@ -16,24 +21,31 @@ size = Vector3(10.136, 0.745117, 10.0595)
 transform = Transform3D(1, 0, 0, 0, 0.873611, 0.486625, 0, -0.486625, 0.873611, 0, 2.95886, 4.05427)
 
 [node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, -4, 0)
 
 [node name="cube" parent="Node3D" instance=ExtResource("2")]
-transform = Transform3D(5, 0, 0, 0, 0.25, 0, 0, 0, 5, 0.541559, -0.638748, -0.42892)
+transform = Transform3D(5, 0, 0, 0, 0.25, 0, 0, 0, 5, 0, 0, 0)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Node3D"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.528442, -0.652832, -0.430267)
 shape = SubResource("BoxShape3D_wy7p7")
 
-[node name="CharacterBody3D" parent="." instance=ExtResource("1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.511409, 0.832887, 0.109368)
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Node3D/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.305219, 0)
+shape = SubResource("HeightMapShape3D_21bh2")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_owxx6")
 
+[node name="Player" parent="." instance=ExtResource("1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.34518, 0.404858, 2.1942)
+
 [node name="test-enemy" parent="." instance=ExtResource("3_cgpl1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.45126, 0.747243, -0.792825)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.45126, 3.40328, -0.792825)
+
+[node name="test-enemy2" parent="." instance=ExtResource("3_cgpl1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.33066, 11.4143, -0.792825)
 
 [node name="drop_manager" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.12128, 0)
@@ -44,6 +56,3 @@ script = ExtResource("4_bgmqv")
 [node name="area" type="CollisionShape3D" parent="drop_manager/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.528442, -0.91561, -0.430267)
 shape = SubResource("BoxShape3D_wy7p7")
-
-[connection signal="death" from="test-enemy" to="CharacterBody3D" method="_on_enemy_death"]
-[connection signal="drop" from="test-enemy" to="drop_manager" method="_on_drop"]

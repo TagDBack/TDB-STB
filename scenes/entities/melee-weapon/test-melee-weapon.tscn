@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://c8o5kwnn5dlyr"]
 
 [ext_resource type="Script" path="res://scripts/melee-weapon.gd" id="1_m0ah0"]
-[ext_resource type="Texture2D" uid="uid://cjqwv562aeh7s" path="res://assets/objects/2d/Classic 100/item1.png" id="2_qv171"]
+[ext_resource type="Texture2D" uid="uid://dxdgdl7jqkkfh" path="res://assets/objects/2d/Classic 100/item1.png" id="2_qv171"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_d5y4y"]
 size = Vector3(0.75, 5, 1.5)

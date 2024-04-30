@@ -1,33 +1,66 @@
-[gd_scene load_steps=5 format=3 uid="uid://og50iljiyo3u"]
+[gd_scene load_steps=11 format=3 uid="uid://og50iljiyo3u"]
 
-[ext_resource type="PackedScene" uid="uid://lwpqpcomo7ls" path="res://assets/objects/3d/Test-tv/scene.gltf" id="1"]
+[ext_resource type="PackedScene" uid="uid://jj3g4xpldjeo" path="res://assets/objects/3d/Test-tv/scene.gltf" id="1"]
 [ext_resource type="Script" path="res://scripts/test-entity.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://dlibm2h5t0o0l" path="res://assets/objects/2d/Classic 100/item88.png" id="2_2yxxy"]
+[ext_resource type="Texture2D" uid="uid://7a8cah08xg3g" path="res://assets/objects/2d/Classic 100/item82.png" id="2_tkrfy"]
 [ext_resource type="PackedScene" uid="uid://c8o5kwnn5dlyr" path="res://scenes/entities/melee-weapon/test-melee-weapon.tscn" id="3_p6osh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6fdif"]
+transparency = 1
+albedo_texture = ExtResource("2_tkrfy")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_6ajnx"]
+material = SubResource("StandardMaterial3D_6fdif")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_khevb"]
+transparency = 1
+albedo_texture = ExtResource("2_2yxxy")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_65p7e"]
+material = SubResource("StandardMaterial3D_khevb")
 
 [sub_resource type="SphereShape3D" id="1"]
 
-[node name="CharacterBody3D" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" groups=["player"]]
+floor_max_angle = 1.0472
 script = ExtResource("2")
 
-[node name="Object" parent="." instance=ExtResource("1")]
+[node name="pointer" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.186232)
 
-[node name="test-melee-weapon" parent="Object" instance=ExtResource("3_p6osh")]
+[node name="pointer-vector" type="MeshInstance3D" parent="pointer"]
+transform = Transform3D(-0.25, 0, -3.7749e-08, 0, 0.25, 0, 3.7749e-08, 0, -0.25, 0, -0.142226, -1.14418)
+mesh = SubResource("PlaneMesh_6ajnx")
+skeleton = NodePath("../../Entity")
+
+[node name="Entity" type="Node3D" parent="."]
+
+[node name="pointer-mouse" type="MeshInstance3D" parent="Entity"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -0.0429257, -0.825839)
+mesh = SubResource("PlaneMesh_65p7e")
+
+[node name="Object" parent="Entity" instance=ExtResource("1")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="test-melee-weapon" parent="Entity" instance=ExtResource("3_p6osh")]
+transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, 0, 0.129344, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
 shape = SubResource("1")
 
-[node name="Entity" type="Node3D" parent="."]
+[node name="Util" type="Node3D" parent="."]
 
-[node name="Camera3D" type="Camera3D" parent="Entity"]
+[node name="Camera3D" type="Camera3D" parent="Util"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 8, 0)
 current = true
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Entity/Camera3D"]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Util/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 0.939693, -0.34202, 0, 0.34202, 0.939693, 0, 2.89282e-08, -0.6618)
 light_energy = 0.4
 
-[node name="DDT" type="Timer" parent="."]
-wait_time = 0.5
+[node name="DashCooldown" type="Timer" parent="."]
+wait_time = 2.0
 
-[connection signal="timeout" from="DDT" to="." method="_on_ddt_timeout"]
+[connection signal="timeout" from="DashCooldown" to="." method="_on_ddt_timeout"]
