@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://dswh3o5ta0a16"]
+
+[ext_resource type="Script" path="res://scripts/ranged-weapon.gd" id="1_8arvf"]
+[ext_resource type="Texture2D" uid="uid://bxgrpb8b7rga3" path="res://assets/objects/2d/Mack's WW2 Mega gun pack/Germany2.png" id="1_dkyj8"]
+[ext_resource type="PackedScene" uid="uid://doeed34fsqt1b" path="res://scenes/entities/bullet/test-bullet.tscn" id="2_lyq01"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kkxkv"]
+transparency = 1
+albedo_texture = ExtResource("1_dkyj8")
+
+[sub_resource type="QuadMesh" id="QuadMesh_qie15"]
+lightmap_size_hint = Vector2i(7, 7)
+material = SubResource("StandardMaterial3D_kkxkv")
+orientation = 1
+
+[node name="Test-ranged-weapon" type="Node3D"]
+visible = false
+script = ExtResource("1_8arvf")
+bullet_pack = ExtResource("2_lyq01")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, -1.5)
+mesh = SubResource("QuadMesh_qie15")
+
+[node name="Cooldown" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]
