@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://d1nvnbi1xcgl5"]
+[gd_scene load_steps=8 format=3 uid="uid://d1nvnbi1xcgl5"]
 
 [ext_resource type="Shader" path="res://assets/textures/terrain-lvl1.gdshader" id="1_rw8gk"]
 [ext_resource type="Texture2D" uid="uid://ceqiefclyxus2" path="res://assets/textures/terrain-crater.jpg" id="2_gsu5j"]
@@ -7,7 +7,7 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_h2a8w"]
 render_priority = 0
 shader = ExtResource("1_rw8gk")
-shader_parameter/heightmap_ratio = 1.0
+shader_parameter/heightmap_ratio = 0.5
 shader_parameter/_a = ExtResource("2_gsu5j")
 shader_parameter/heightmap = ExtResource("2_gsu5j")
 
@@ -16,6 +16,9 @@ subdivide_width = 64
 subdivide_depth = 64
 
 [sub_resource type="HeightMapShape3D" id="HeightMapShape3D_oafq6"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wf421"]
+size = Vector3(1, 0.157715, 1)
 
 [node name="terrain" type="Node3D"]
 
@@ -30,3 +33,15 @@ level = "res://assets/textures/terrain-crater.jpg"
 [node name="CollisionShape3D" type="CollisionShape3D" parent="terrain/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
 shape = SubResource("HeightMapShape3D_oafq6")
+
+[node name="SubGround" type="StaticBody3D" parent="terrain"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain/SubGround"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.107178, 0)
+shape = SubResource("BoxShape3D_wf421")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.806184, 4.07034)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 0.873016, 0.487692, 0, -0.487692, 0.873016, 0, 1.43172, 0)

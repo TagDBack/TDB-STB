@@ -21,7 +21,7 @@ floor_constant_speed = true
 floor_max_angle = 3.14159
 
 [node name="enemy2" parent="." instance=ExtResource("3_uw4wn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.204991, 11.3684, 0.441069)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.1626, 11.3684, 8.87146)
 floor_stop_on_slope = false
 floor_constant_speed = true
 floor_max_angle = 3.14159

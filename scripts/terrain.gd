@@ -2,7 +2,7 @@ extends MeshInstance3D
 
 @onready var colShape = $StaticBody3D/CollisionShape3D
 @export var chunk_size = 2.0
-@export var height_ratio = 1.0
+@export var height_ratio = 0.5
 @export var colShape_size_ratio = 0.1
 @export var level = "res://assets/textures/test-terrain2.jpg"
 

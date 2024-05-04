@@ -6,7 +6,7 @@ class_name enemy
 @export var armor = 0
 @export var damage = 5
 
-@export var speed = 10
+@export var speed = 8
 var speedMult = 0.8
 var isHunt = false
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
