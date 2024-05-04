@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://wjgxgtqn7gwh"]
 
 [ext_resource type="Script" path="res://scripts/main-menu.gd" id="1_n78kf"]
-[ext_resource type="Texture2D" uid="uid://j4n32mocot0g" path="res://assets/ui/yggdrasil-tree-of-life-celtic-symbol-nature-nordic-sticker.png" id="1_shysx"]
-[ext_resource type="FontFile" uid="uid://cedim5qndi8x2" path="res://assets/ui/fonts/Caesar_Dressing/CaesarDressing-Regular.ttf" id="3_vcdub"]
+[ext_resource type="Texture2D" uid="uid://da8nosbv03ob0" path="res://assets/ui/yggdrasil-tree-of-life-celtic-symbol-nature-nordic-sticker.png" id="1_shysx"]
+[ext_resource type="FontFile" uid="uid://uc6m74naoicj" path="res://assets/ui/fonts/Caesar_Dressing/CaesarDressing-Regular.ttf" id="3_vcdub"]
 
 [node name="MainMenu" type="Node2D"]
 position = Vector2(0, -2)

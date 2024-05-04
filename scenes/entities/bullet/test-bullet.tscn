@@ -1,0 +1,100 @@
+[gd_scene load_steps=14 format=3 uid="uid://doeed34fsqt1b"]
+
+[ext_resource type="Texture2D" uid="uid://dpn5lgjlv5i6w" path="res://assets/objects/2d/Fire Pixel Bullet/Bullet1_1.png" id="1_1wwvc"]
+[ext_resource type="Script" path="res://scripts/bullet.gd" id="1_4p3l5"]
+[ext_resource type="Texture2D" uid="uid://du71pdvi53sx2" path="res://assets/objects/2d/Fire Pixel Bullet/Bullet1_2.png" id="1_odwqy"]
+[ext_resource type="Texture2D" uid="uid://c04sofk6fr0bv" path="res://assets/objects/2d/Fire Pixel Bullet/Bullet1_3.png" id="3_2h5dd"]
+[ext_resource type="Texture2D" uid="uid://cb2dxwitgcrh8" path="res://assets/objects/2d/Fire Pixel Bullet/Bullet1_4.png" id="4_4bs1k"]
+[ext_resource type="Texture2D" uid="uid://c5b6nnhl6q7qw" path="res://assets/objects/2d/Fire Pixel Bullet/Bullet1_5.png" id="5_ua4px"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_duviw"]
+size = Vector3(0.3, 100, 0.3)
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_250l4"]
+frames = 5
+frame_0/texture = ExtResource("1_1wwvc")
+frame_0/duration = 0.1
+frame_1/texture = ExtResource("1_odwqy")
+frame_1/duration = 0.1
+frame_2/texture = ExtResource("3_2h5dd")
+frame_2/duration = 0.1
+frame_3/texture = ExtResource("4_4bs1k")
+frame_3/duration = 0.1
+frame_4/texture = ExtResource("5_ua4px")
+frame_4/duration = 0.1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jh07x"]
+transparency = 1
+albedo_texture = SubResource("AnimatedTexture_250l4")
+
+[sub_resource type="QuadMesh" id="QuadMesh_cti3x"]
+material = SubResource("StandardMaterial3D_jh07x")
+size = Vector2(0.3, 0.3)
+orientation = 1
+
+[sub_resource type="Animation" id="Animation_8083e"]
+resource_name = "Bullet"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:mesh")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshInstance3D:mesh:material:albedo_texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("AnimatedTexture_250l4")]
+}
+
+[sub_resource type="Animation" id="Animation_gxcr1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:mesh:material:albedo_texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("AnimatedTexture_250l4")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5ry1r"]
+_data = {
+"Bullet": SubResource("Animation_8083e"),
+"RESET": SubResource("Animation_gxcr1")
+}
+
+[node name="Test-bullet" type="Node3D"]
+script = ExtResource("1_4p3l5")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_duviw")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("QuadMesh_cti3x")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_5ry1r")
+}
