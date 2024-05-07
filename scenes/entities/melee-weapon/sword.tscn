@@ -1,14 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://c8o5kwnn5dlyr"]
+[gd_scene load_steps=6 format=3 uid="uid://d220od6q83egv"]
 
-[ext_resource type="Script" path="res://scripts/melee-weapon.gd" id="1_m0ah0"]
-[ext_resource type="Texture2D" uid="uid://cjqwv562aeh7s" path="res://assets/objects/2d/Classic 100/item1.png" id="2_qv171"]
+[ext_resource type="Script" path="res://scripts/melee-weapon.gd" id="1_xb4n1"]
+[ext_resource type="Texture2D" uid="uid://cjqwv562aeh7s" path="res://assets/objects/2d/Classic 100/item1.png" id="2_gbjbt"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_d5y4y"]
 size = Vector3(0.75, 5, 1.5)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ky4gk"]
 transparency = 1
-albedo_texture = ExtResource("2_qv171")
+albedo_texture = ExtResource("2_gbjbt")
 
 [sub_resource type="QuadMesh" id="QuadMesh_yjv3o"]
 lightmap_size_hint = Vector2i(7, 7)
@@ -16,10 +16,10 @@ material = SubResource("StandardMaterial3D_ky4gk")
 size = Vector2(1.5, 1.5)
 orientation = 1
 
-[node name="test-melee-weapon" type="Node3D"]
+[node name="Sword" type="Node3D"]
 transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, 0, 0, 0)
 visible = false
-script = ExtResource("1_m0ah0")
+script = ExtResource("1_xb4n1")
 
 [node name="Area3D" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.5)
