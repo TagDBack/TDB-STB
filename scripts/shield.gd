@@ -11,10 +11,11 @@ extends melee_weapon
 #var is_rotating = false
 
 @onready var cooldown = $Cooldown
+@onready var cooldown_sign = $CooldownSign
 
 var stretch_length = 0
 var stretch_speed = 15
-@export var max_strecth = 1
+@export var max_strecth = 2
 # From 0 to max_strecth
 
 var is_action = false
@@ -23,7 +24,7 @@ var outward = false
 func _ready():
 	area_collision.body_entered.connect(_enemy_on_body_entered)
 	#area_collision.body_entered.connect(_bullet_on_body_entered)
-	stretch_speed = speed
+	stretch_speed = speed * 2
 	damage = 0.1 * damage
 
 func _physics_process(delta):
@@ -36,6 +37,7 @@ func _physics_process(delta):
 		is_action = true
 		outward = true
 		cooldown.start()
+		cooldown_sign.visible = false
 
 func _retracting(delta):
 	if outward:
@@ -50,6 +52,9 @@ func _retracting(delta):
 			self.position.z = - stretch_length
 		else:
 			is_action = false
+
+func _on_cooldown_timeout():
+	cooldown_sign.visible = true
 
 #func change_visibility(trufals):
 	#self.visible = trufals
