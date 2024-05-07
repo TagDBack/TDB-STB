@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://brxgcbxyerq6m"]
+[gd_scene load_steps=4 format=3 uid="uid://brxgcbxyerq6m"]
 
 [ext_resource type="PackedScene" uid="uid://d1nvnbi1xcgl5" path="res://scenes/entities/terrain-lvl1.tscn" id="3_qx5xr"]
 [ext_resource type="PackedScene" uid="uid://eapxb2w7pn6k" path="res://scenes/entities/test-enemy.tscn" id="3_uw4wn"]
-[ext_resource type="PackedScene" uid="uid://doeed34fsqt1b" path="res://scenes/entities/bullet/test-bullet.tscn" id="4_g8ey8"]
 [ext_resource type="PackedScene" uid="uid://og50iljiyo3u" path="res://scenes/entities/test-entity.tscn" id="4_xul82"]
 
 [node name="level1" type="Node3D"]
@@ -25,6 +24,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.204991, 11.3684, 0.441069)
 floor_stop_on_slope = false
 floor_constant_speed = true
 floor_max_angle = 3.14159
-
-[node name="Test-bullet" parent="." instance=ExtResource("4_g8ey8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)

@@ -5,6 +5,7 @@ class_name enemy
 @export var health = 10
 @export var armor = 0
 @export var damage = 5
+@export var pushed_back_const = 3
 
 @export var speed = 10
 var speedMult = 0.8
@@ -33,6 +34,10 @@ func take_damage(damage):
 		#print("die")
 		isDead = true
 		death.emit()
+		
+func pushed_back():
+	self.position += self.transform.basis.y * pushed_back_const
+	self.position += self.transform.basis.z * pushed_back_const
 
 func direction(_delta):
 	var dir = Vector3.ZERO
@@ -60,6 +65,7 @@ func _physics_process(delta):
 		scan_player()
 	
 	velocity = direction(delta)
+	look_at(player.position)
 	move_and_slide()
 
 func _on_dead_timeout():

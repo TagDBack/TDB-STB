@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://dsxl300x5qfm2"]
+
+[ext_resource type="Script" path="res://scripts/shield.gd" id="1_q5urp"]
+[ext_resource type="Texture2D" uid="uid://c4ho4iwskb4wy" path="res://assets/objects/2d/Classic 100/item52.png" id="2_6vlu8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_d5y4y"]
+size = Vector3(1.7, 5, 1.7)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ky4gk"]
+transparency = 1
+albedo_texture = ExtResource("2_6vlu8")
+
+[sub_resource type="QuadMesh" id="QuadMesh_yjv3o"]
+lightmap_size_hint = Vector2i(7, 7)
+material = SubResource("StandardMaterial3D_ky4gk")
+size = Vector2(2, 2)
+orientation = 1
+
+[node name="Shield" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+script = ExtResource("1_q5urp")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.5)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_d5y4y")
+
+[node name="Cooldown" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -1.5)
+mesh = SubResource("QuadMesh_yjv3o")
+
+[connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]
