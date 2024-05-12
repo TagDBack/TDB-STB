@@ -1,5 +1,7 @@
 extends Node3D
 
+@export var player: CharacterBody3D = null
+
 @export var enemy_pack: PackedScene
 @export var total_spawn_number: int = 100
 @export var total_batch: int = 5
@@ -10,7 +12,11 @@ extends Node3D
 
 func _ready():
 	randomize()
+	scan_player()
 	repeat()
+
+func _setup(player):
+	self.player = player
 
 func spawn(number_spawn_now):
 	call_deferred("_deferred_spawn", number_spawn_now)
@@ -18,7 +24,6 @@ func spawn(number_spawn_now):
 func _deferred_spawn(number_spawn_now):
 	for i in range(number_spawn_now):
 		var spawned = enemy_pack.instantiate()
-		get_parent().get_parent().add_child(spawned)
 		
 		var spawn_pos = origin
 		var angle = randf_range(-2 * PI, 2 * PI)
@@ -29,6 +34,12 @@ func _deferred_spawn(number_spawn_now):
 		
 		spawned.global_position = spawn_pos
 		spawned.look_at(origin)
+		
+		if player != null:
+			spawned.player = player
+			spawned.isHunt = true
+		
+		get_parent().get_parent().add_child(spawned)
 
 func repeat():
 	call_deferred("_deferred_repeat")
@@ -44,3 +55,10 @@ func _deferred_repeat():
 		
 		await get_tree().create_timer(delay_batch_spawn).timeout
 		repeat()
+	
+func scan_player():
+	var list_player = get_tree().get_nodes_in_group("player")
+	if len(list_player) == 0:
+		player = null
+	else:
+		player = list_player[0]

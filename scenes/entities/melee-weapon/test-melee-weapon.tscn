@@ -6,13 +6,13 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_d5y4y"]
 size = Vector3(0.75, 5, 1.5)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ao1fc"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ky4gk"]
 transparency = 1
 albedo_texture = ExtResource("2_qv171")
 
 [sub_resource type="QuadMesh" id="QuadMesh_yjv3o"]
 lightmap_size_hint = Vector2i(7, 7)
-material = SubResource("StandardMaterial3D_ao1fc")
+material = SubResource("StandardMaterial3D_ky4gk")
 size = Vector2(1.5, 1.5)
 orientation = 1
 
