@@ -4,8 +4,8 @@
 [ext_resource type="Script" path="res://scripts/test-entity.gd" id="2"]
 [ext_resource type="Texture2D" uid="uid://cq4cyho80ay7m" path="res://assets/objects/2d/Classic 100/item88.png" id="2_2yxxy"]
 [ext_resource type="Texture2D" uid="uid://dbwblm8eimkgr" path="res://assets/objects/2d/Classic 100/item82.png" id="2_tkrfy"]
-[ext_resource type="PackedScene" uid="uid://dsxl300x5qfm2" path="res://scenes/entities/melee-weapon/shield.tscn" id="6_0hqum"]
 [ext_resource type="PackedScene" uid="uid://dswh3o5ta0a16" path="res://scenes/entities/ranged-weapon/test-ranged-weapon.tscn" id="6_g3j2n"]
+[ext_resource type="PackedScene" uid="uid://d220od6q83egv" path="res://scenes/entities/melee-weapon/sword.tscn" id="6_pawl6"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6fdif"]
 transparency = 1
@@ -46,7 +46,7 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 
 
 [node name="Test-ranged-weapon" parent="Entity" instance=ExtResource("6_g3j2n")]
 
-[node name="Shield" parent="Entity" instance=ExtResource("6_0hqum")]
+[node name="Sword" parent="Entity" instance=ExtResource("6_pawl6")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)

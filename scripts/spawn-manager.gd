@@ -20,6 +20,7 @@ func spawn(spawner_level_path):
 	call_deferred("_deferred_spawn", spawner_level_path)
 	
 func _deferred_spawn(spawner_level_path):
+	await get_tree().create_timer(0.1).timeout
 	var s = ResourceLoader.load(spawner_level_path)
 	var spawner = s.instantiate()
 	get_tree().root.add_child(spawner)
