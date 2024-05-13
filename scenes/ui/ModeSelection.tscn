@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dxjtibqqabg20"]
+[gd_scene load_steps=13 format=3 uid="uid://dxjtibqqabg20"]
 
 [ext_resource type="FontFile" uid="uid://uc6m74naoicj" path="res://assets/ui/fonts/Caesar_Dressing/CaesarDressing-Regular.ttf" id="1_4gmyj"]
 [ext_resource type="Texture2D" uid="uid://bxgrpb8b7rga3" path="res://assets/objects/2d/Mack's WW2 Mega gun pack/Germany2.png" id="1_vgfoe"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://c4ho4iwskb4wy" path="res://assets/objects/2d/Classic 100/item52.png" id="4_0caey"]
 [ext_resource type="ButtonGroup" uid="uid://tjagyxfyn5mc" path="res://assets/ui/player_mode_button_group.tres" id="4_24p1m"]
 [ext_resource type="ButtonGroup" uid="uid://beg08jk5r3d4n" path="res://assets/ui/ranged_weapon_button_group.tres" id="6_rnhg3"]
+[ext_resource type="Script" path="res://scripts/mode-selection-button.gd" id="10_05epg"]
 
 [node name="ModeSelection" type="Control"]
 layout_mode = 3
@@ -145,6 +146,9 @@ icon = ExtResource("2_6tp8k")
 icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
+script = ExtResource("10_05epg")
+item_name = "Sword"
+group_name = "melee_weapon"
 
 [node name="Button2" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
@@ -161,6 +165,9 @@ icon = ExtResource("3_24cqm")
 icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
+script = ExtResource("10_05epg")
+item_name = "Spear"
+group_name = "melee_weapon"
 
 [node name="Button3" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
@@ -177,6 +184,9 @@ icon = ExtResource("4_0caey")
 icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
+script = ExtResource("10_05epg")
+item_name = "Shield"
+group_name = "melee_weapon"
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -187,3 +197,7 @@ custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 8
 text = "Play"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer3/Button" to="MarginContainer/VBoxContainer/HBoxContainer3/Button" method="_on_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer3/Button2" to="MarginContainer/VBoxContainer/HBoxContainer3/Button2" method="_on_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer3/Button3" to="MarginContainer/VBoxContainer/HBoxContainer3/Button3" method="_on_pressed"]
