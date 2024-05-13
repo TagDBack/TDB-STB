@@ -1,0 +1,65 @@
+[gd_scene load_steps=13 format=3 uid="uid://dsviljuhkumt7"]
+
+[ext_resource type="PackedScene" uid="uid://boukdf54o6ah3" path="res://scenes/entities/enemy/skeleton.tscn" id="1_7kduo"]
+[ext_resource type="Script" path="res://scripts/test_level.gd" id="1_l8x6j"]
+[ext_resource type="Texture2D" uid="uid://ckdcb0frxxd24" path="res://assets/textures/AllSkyFree_Sky_ClearBlueSky_Equirect.png" id="3_a7i6u"]
+[ext_resource type="PackedScene" uid="uid://og50iljiyo3u" path="res://scenes/entities/test-entity.tscn" id="3_gluhh"]
+[ext_resource type="PackedScene" uid="uid://md61e5egnwxd" path="res://scenes/entities/enemy/witch.tscn" id="5_gexg4"]
+[ext_resource type="PackedScene" uid="uid://d1nvnbi1xcgl5" path="res://scenes/entities/terrain-lvl1.tscn" id="6_ycfeo"]
+[ext_resource type="PackedScene" uid="uid://b648hqvqqssdh" path="res://scenes/entities/enemy/orc_zombie.tscn" id="7_6tsbh"]
+[ext_resource type="PackedScene" uid="uid://deq3chwil8wea" path="res://scenes/entities/enemy/hela.tscn" id="8_bqb8i"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5ev8n"]
+albedo_color = Color(0.184314, 0.141176, 0, 1)
+metallic_specular = 0.0
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ki3j7"]
+panorama = ExtResource("3_a7i6u")
+
+[sub_resource type="Sky" id="Sky_x3xb0"]
+sky_material = SubResource("PanoramaSkyMaterial_ki3j7")
+
+[sub_resource type="Environment" id="Environment_gxa2u"]
+background_mode = 2
+sky = SubResource("Sky_x3xb0")
+
+[node name="TestLevel" type="Node3D"]
+script = ExtResource("1_l8x6j")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 0, 4.81679, -19.7591)
+visible = false
+material = SubResource("StandardMaterial3D_5ev8n")
+
+[node name="terrain" parent="." instance=ExtResource("6_ycfeo")]
+transform = Transform3D(33.84, 0, 0, 0, 33.84, 0, 0, 0, 33.84, 0, -6, 0)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.913545, 0.406737, 0, -0.406737, 0.913545, -0.277778, 9.9053, 20.2286)
+current = true
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 17, 0)
+light_color = Color(1, 0.774241, 0.98902, 1)
+light_energy = 16.0
+omni_range = 111.15
+omni_attenuation = 0.683018
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_gxa2u")
+
+[node name="CharacterBody3D" parent="." instance=ExtResource("3_gluhh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 3.5)
+
+[node name="Skeleton" parent="." instance=ExtResource("1_7kduo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.7, 3.5, -0.700001)
+
+[node name="Witch" parent="." instance=ExtResource("5_gexg4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 4, -9)
+
+[node name="Orc_Zombie" parent="." instance=ExtResource("7_6tsbh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 8, -5)
+
+[node name="Hela" parent="." instance=ExtResource("8_bqb8i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11, -11)
+kb_res = -50.0

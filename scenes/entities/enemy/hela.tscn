@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://deq3chwil8wea"]
+
+[ext_resource type="Script" path="res://scripts/entity/enemy/hela.gd" id="1_sk844"]
+[ext_resource type="Texture2D" uid="uid://dyte5s8j4uloo" path="res://icon.png" id="2_akt0m"]
+[ext_resource type="PackedScene" uid="uid://hniqr0bofmgx" path="res://scenes/projectiles/projectile_hela.tscn" id="2_neeta"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ub3o2"]
+radius = 1.5
+
+[node name="Hela" type="CharacterBody3D"]
+collision_layer = 2
+script = ExtResource("1_sk844")
+projectile = ExtResource("2_neeta")
+atk_speed = 5
+atk_range = 10
+hp = 500.0
+atk = 20.0
+speed = 0.5
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(3.7, 0, 0, 0, 3.7, 0, 0, 0, 3.7, 0, 0, 0)
+modulate = Color(0.160784, 0.839216, 0.388235, 0.772549)
+billboard = 1
+texture = ExtResource("2_akt0m")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_ub3o2")
+
+[node name="Cooldown" type="Timer" parent="."]
+one_shot = true
+
+[node name="ActCooldown" type="Timer" parent="."]
+wait_time = 15.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="ActCooldown" to="." method="_on_act_cooldown_timeout"]

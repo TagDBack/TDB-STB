@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bpvw8kclaqodt"]
+
+[ext_resource type="Script" path="res://scripts/entity/enemy/enemy_ranged.gd" id="1_5t80t"]
+[ext_resource type="Texture2D" uid="uid://dyte5s8j4uloo" path="res://icon.png" id="2_3aokv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_obm02"]
+
+[node name="Ice_Wraith" type="CharacterBody3D"]
+script = ExtResource("1_5t80t")
+atk_speed = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_obm02")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+modulate = Color(0.168116, 0.136351, 0.72864, 1)
+billboard = 1
+texture = ExtResource("2_3aokv")
+
+[node name="Cooldown" type="Timer" parent="."]
+one_shot = true

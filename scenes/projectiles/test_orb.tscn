@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bs8u4posds8br"]
+
+[ext_resource type="Script" path="res://scripts/projectiles/enemy_projectile.gd" id="1_d74ff"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_f5fme"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_wejkn"]
+
+[node name="Test Orb" type="Node3D"]
+script = ExtResource("1_d74ff")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+mesh = SubResource("SphereMesh_f5fme")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+shape = SubResource("SphereShape3D_wejkn")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
