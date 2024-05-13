@@ -17,9 +17,7 @@ func _ready():
 	$QuitButton.get_node("RichTextLabel").connect("meta_clicked", _on_meta_clicked)
 	
 func _on_new_game_pressed():
-	print("New Game")
-	get_tree().change_scene_to_file("res://scenes/levels/level1.tscn")
-	WaveManager.start()
+	get_tree().change_scene_to_file("res://scenes/ui/ModeSelection.tscn")
 	
 func _on_meta_clicked(arg):
 	match arg:

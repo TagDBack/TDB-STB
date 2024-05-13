@@ -1,0 +1,206 @@
+[gd_scene load_steps=14 format=3 uid="uid://dxjtibqqabg20"]
+
+[ext_resource type="FontFile" uid="uid://uc6m74naoicj" path="res://assets/ui/fonts/Caesar_Dressing/CaesarDressing-Regular.ttf" id="1_4gmyj"]
+[ext_resource type="Texture2D" uid="uid://bxgrpb8b7rga3" path="res://assets/objects/2d/Mack's WW2 Mega gun pack/Germany2.png" id="1_vgfoe"]
+[ext_resource type="FontFile" uid="uid://qntjjujpcwg5" path="res://assets/ui/fonts/Skranji/Skranji-Regular.ttf" id="2_3f34d"]
+[ext_resource type="Texture2D" uid="uid://cw3yc3l5exb87" path="res://assets/objects/2d/Snoop's Swords (Pack 2)/2px/34.png" id="2_6tp8k"]
+[ext_resource type="ButtonGroup" uid="uid://c7jex6ejldy77" path="res://assets/ui/melee_weapon_button_group.tres" id="2_fmepq"]
+[ext_resource type="StyleBox" uid="uid://bkwr7xf3dg0ri" path="res://assets/ui/mode_selection_button_normal.tres" id="2_qphvo"]
+[ext_resource type="Texture2D" uid="uid://fo8uucenf6k4" path="res://assets/objects/2d/Snoop's Swords (Pack 2)/2px/36.png" id="3_24cqm"]
+[ext_resource type="StyleBox" uid="uid://cgs00jctd86ne" path="res://assets/ui/mode_selection_button_pressed.tres" id="3_tmu1j"]
+[ext_resource type="Texture2D" uid="uid://c4ho4iwskb4wy" path="res://assets/objects/2d/Classic 100/item52.png" id="4_0caey"]
+[ext_resource type="ButtonGroup" uid="uid://tjagyxfyn5mc" path="res://assets/ui/player_mode_button_group.tres" id="4_24p1m"]
+[ext_resource type="ButtonGroup" uid="uid://beg08jk5r3d4n" path="res://assets/ui/ranged_weapon_button_group.tres" id="6_rnhg3"]
+[ext_resource type="Script" path="res://scripts/mode-selection-button.gd" id="10_05epg"]
+[ext_resource type="Script" path="res://scripts/start-game-button.gd" id="13_n5vaq"]
+
+[node name="ModeSelection" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Player Mode"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 20
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_4gmyj")
+theme_override_styles/normal = ExtResource("2_qphvo")
+theme_override_styles/hover = ExtResource("2_qphvo")
+theme_override_styles/pressed = ExtResource("3_tmu1j")
+toggle_mode = true
+button_pressed = true
+button_group = ExtResource("4_24p1m")
+text = "Immortal
+Player cannot Die"
+
+[node name="Button2" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_4gmyj")
+disabled = true
+text = "Demi-God
+health decrease one-tenth of Mortal"
+
+[node name="Button3" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_4gmyj")
+disabled = true
+text = "Mortal
+just a mortal"
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Ranged Weapon"
+horizontal_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 20
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_3f34d")
+theme_override_styles/normal = ExtResource("2_qphvo")
+theme_override_styles/hover = ExtResource("2_qphvo")
+theme_override_styles/pressed = ExtResource("3_tmu1j")
+toggle_mode = true
+button_pressed = true
+button_group = ExtResource("6_rnhg3")
+text = "Mid Range
+normal"
+icon = ExtResource("1_vgfoe")
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="Button2" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_3f34d")
+disabled = true
+text = "Long Range
+long cooldown"
+
+[node name="Button3" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_3f34d")
+disabled = true
+text = "Short Range
+spread"
+
+[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Melee Weapon"
+horizontal_alignment = 1
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_3f34d")
+theme_override_styles/normal = ExtResource("2_qphvo")
+theme_override_styles/hover = ExtResource("2_qphvo")
+theme_override_styles/pressed = ExtResource("3_tmu1j")
+toggle_mode = true
+button_pressed = true
+button_group = ExtResource("2_fmepq")
+text = "Sword
+normal"
+icon = ExtResource("2_6tp8k")
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+script = ExtResource("10_05epg")
+item_name = "Sword"
+group_name = "melee_weapon"
+
+[node name="Button2" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_3f34d")
+theme_override_styles/normal = ExtResource("2_qphvo")
+theme_override_styles/hover = ExtResource("2_qphvo")
+theme_override_styles/pressed = ExtResource("3_tmu1j")
+toggle_mode = true
+button_group = ExtResource("2_fmepq")
+text = "Spear
+far-reach and swing"
+icon = ExtResource("3_24cqm")
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+script = ExtResource("10_05epg")
+item_name = "Spear"
+group_name = "melee_weapon"
+
+[node name="Button3" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_3f34d")
+theme_override_styles/normal = ExtResource("2_qphvo")
+theme_override_styles/hover = ExtResource("2_qphvo")
+theme_override_styles/pressed = ExtResource("3_tmu1j")
+toggle_mode = true
+button_group = ExtResource("2_fmepq")
+text = "Shield
+bash enemy"
+icon = ExtResource("4_0caey")
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+script = ExtResource("10_05epg")
+item_name = "Shield"
+group_name = "melee_weapon"
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_right = 25
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Play"
+script = ExtResource("13_n5vaq")
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer3/Button" to="MarginContainer/VBoxContainer/HBoxContainer3/Button" method="_on_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer3/Button2" to="MarginContainer/VBoxContainer/HBoxContainer3/Button2" method="_on_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer3/Button3" to="MarginContainer/VBoxContainer/HBoxContainer3/Button3" method="_on_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MarginContainer/Button" to="MarginContainer/VBoxContainer/MarginContainer/Button" method="_on_new_game_pressed"]
