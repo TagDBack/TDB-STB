@@ -1,0 +1,65 @@
+[gd_scene load_steps=11 format=3 uid="uid://c2phsj5rf5hvk"]
+
+[ext_resource type="Script" path="res://scripts/test-entity.gd" id="1_co6gj"]
+[ext_resource type="Texture2D" uid="uid://dbwblm8eimkgr" path="res://assets/objects/2d/Classic 100/item82.png" id="2_rm2qc"]
+[ext_resource type="Texture2D" uid="uid://cq4cyho80ay7m" path="res://assets/objects/2d/Classic 100/item88.png" id="3_c7j82"]
+[ext_resource type="PackedScene" uid="uid://lwpqpcomo7ls" path="res://assets/objects/3d/Test-tv/scene.gltf" id="4_8bnxy"]
+[ext_resource type="PackedScene" uid="uid://dswh3o5ta0a16" path="res://scenes/entities/ranged-weapon/test-ranged-weapon.tscn" id="5_l2nys"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6fdif"]
+transparency = 1
+albedo_texture = ExtResource("2_rm2qc")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_6ajnx"]
+material = SubResource("StandardMaterial3D_6fdif")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_khevb"]
+transparency = 1
+albedo_texture = ExtResource("3_c7j82")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_65p7e"]
+material = SubResource("StandardMaterial3D_khevb")
+
+[sub_resource type="SphereShape3D" id="1"]
+
+[node name="Player" type="CharacterBody3D" groups=["player"]]
+floor_max_angle = 1.0472
+script = ExtResource("1_co6gj")
+
+[node name="pointer" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.186232)
+
+[node name="pointer-vector" type="MeshInstance3D" parent="pointer"]
+transform = Transform3D(-0.25, 0, -3.7749e-08, 0, 0.25, 0, 3.7749e-08, 0, -0.25, 0, -0.142226, -1.14418)
+mesh = SubResource("PlaneMesh_6ajnx")
+skeleton = NodePath("../../Entity")
+
+[node name="Entity" type="Node3D" parent="."]
+
+[node name="pointer-mouse" type="MeshInstance3D" parent="Entity"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -0.0429257, -0.825839)
+mesh = SubResource("PlaneMesh_65p7e")
+
+[node name="Object" parent="Entity" instance=ExtResource("4_8bnxy")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="Test-ranged-weapon" parent="Entity" instance=ExtResource("5_l2nys")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
+shape = SubResource("1")
+
+[node name="Util" type="Node3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="Util"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 8, 0)
+current = true
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Util/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 0.939693, -0.34202, 0, 0.34202, 0.939693, 0, 2.89282e-08, -0.6618)
+light_energy = 0.4
+
+[node name="DashCooldown" type="Timer" parent="."]
+wait_time = 2.0
+
+[connection signal="timeout" from="DashCooldown" to="." method="_on_ddt_timeout"]
