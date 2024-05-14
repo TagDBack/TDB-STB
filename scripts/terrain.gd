@@ -5,6 +5,7 @@ extends MeshInstance3D
 @export var height_ratio = 1.0
 @export var colShape_size_ratio = 0.1
 @export var level = "res://assets/textures/test-terrain2.jpg"
+@export var image: Image = null
 
 var img = Image.new()
 var shape = HeightMapShape3D.new()
@@ -16,9 +17,13 @@ func _ready():
 	update_terrain(height_ratio, colShape_size_ratio)
 
 func update_terrain(_height_ratio, _colShape_size_ratio):
-	material_override.set("shader_param/height_ratio", _height_ratio)
+	material_override.set("shader_parameter/height_ratio", _height_ratio)
 	
-	img.load(level)
+	if image != null:
+		img = image
+	else:
+		img.load(level)
+	img.decompress()
 	img.convert(Image.FORMAT_RF)
 	img.resize(img.get_width()*_colShape_size_ratio, img.get_height()*_colShape_size_ratio)
 	var data = img.get_data().to_float32_array()

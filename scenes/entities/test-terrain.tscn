@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bi30ydvmuhf0q"]
+[gd_scene load_steps=8 format=3 uid="uid://bi30ydvmuhf0q"]
 
 [ext_resource type="Shader" path="res://assets/textures/test-terrain.gdshader" id="1_f1xo0"]
 [ext_resource type="Texture2D" uid="uid://ddpgoj8idkjaw" path="res://assets/textures/test-terrain2.jpg" id="3_t0ctl"]
+[ext_resource type="Image" uid="uid://nwgewsurjxfd" path="res://assets/textures/terrain-crater-image-format.jpg" id="4_a16qn"]
 [ext_resource type="Script" path="res://scripts/terrain.gd" id="4_vgpit"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_h2a8w"]
@@ -23,6 +24,7 @@ subdivide_depth = 64
 material_override = SubResource("ShaderMaterial_h2a8w")
 mesh = SubResource("PlaneMesh_yit7d")
 script = ExtResource("4_vgpit")
+image = ExtResource("4_a16qn")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="terrain"]
 
