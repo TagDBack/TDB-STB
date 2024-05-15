@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://c3qvpnvmg1pxw"]
 
 [ext_resource type="PackedScene" uid="uid://og50iljiyo3u" path="res://scenes/entities/test-entity.tscn" id="1"]
-[ext_resource type="PackedScene" uid="uid://dfgyijt5nqlfn" path="res://assets/objects/3d/Test-cube/cube.glb" id="2"]
+[ext_resource type="PackedScene" uid="uid://2ts1sycn0632" path="res://assets/objects/3d/Test-cube/cube.glb" id="2"]
 [ext_resource type="PackedScene" uid="uid://eapxb2w7pn6k" path="res://scenes/entities/test-enemy.tscn" id="3_cgpl1"]
 [ext_resource type="Script" path="res://scripts/drop_manager.gd" id="4_bgmqv"]
 
