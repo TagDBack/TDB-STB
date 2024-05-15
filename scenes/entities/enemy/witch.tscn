@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://md61e5egnwxd"]
+
+[ext_resource type="Script" path="res://scripts/entity/enemy/enemy_ranged.gd" id="1_tcbji"]
+[ext_resource type="Texture2D" uid="uid://dyte5s8j4uloo" path="res://icon.png" id="2_aarmr"]
+[ext_resource type="PackedScene" uid="uid://inalq02ssqi2" path="res://scenes/projectiles/projectile_witch.tscn" id="2_nop2m"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_h0psh"]
+
+[node name="Witch" type="CharacterBody3D"]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_tcbji")
+projectile = ExtResource("2_nop2m")
+hp = 20.0
+atk = 10.0
+kb_res = -20.0
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+modulate = Color(0.713401, 0.00240038, 0.9262, 1)
+billboard = 1
+texture = ExtResource("2_aarmr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_h0psh")
+
+[node name="Cooldown" type="Timer" parent="."]
+one_shot = true

@@ -23,5 +23,5 @@ func change_visibility(trufals):
 	self.get_node("Area3D").monitoring = trufals
 	
 func _enemy_on_body_entered(body_entered):
-	if body_entered is enemy:
+	if body_entered is Enemy:
 		body_entered.take_damage(damage)
