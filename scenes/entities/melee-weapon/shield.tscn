@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cdomniekqnqb1" path="res://assets/objects/2d/Classic 100/item50.png" id="3_fej4t"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_d5y4y"]
-size = Vector3(1.7, 5, 1.7)
+size = Vector3(1.7, 10, 1.7)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ky4gk"]
 transparency = 1

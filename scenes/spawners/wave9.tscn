@@ -18,8 +18,9 @@ max_radius = 15
 enemy_pack = ExtResource("3_ihkbw")
 total_spawn_number = 10
 total_batch = 1
-min_radius = 5
-max_radius = 15
+min_radius = 15
+max_radius = 25
+origin = Vector3(0, 15, 0)
 
 [node name="InitialOrcZombieSpawner" parent="." instance=ExtResource("1_ya0c1")]
 enemy_pack = ExtResource("4_gyrd4")
@@ -41,8 +42,9 @@ enemy_pack = ExtResource("3_ihkbw")
 total_spawn_number = 90
 total_batch = 30
 delay_batch_spawn = 1.0
-min_radius = 10
-max_radius = 20
+min_radius = 15
+max_radius = 25
+origin = Vector3(0, 15, 0)
 
 [node name="NoiseOrcZombieSpawner" parent="." instance=ExtResource("1_ya0c1")]
 enemy_pack = ExtResource("4_gyrd4")
