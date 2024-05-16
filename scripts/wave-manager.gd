@@ -50,17 +50,11 @@ func _deffered_next_wave():
 	
 	SpawnManager.new_wave(wave_number)
 	
-	if (wave_number >= 61):
+	if (wave_number >= 31):
 		endless_mode_next_wave()
-	elif (wave_number % 20 == 0):
+	elif (wave_number % 10 == 0):
 		is_boss_wave = true
 		print("boss wave")
-		
-		# Do boss wave spawner here
-		# Delete this if the boss has been implemented
-		await get_tree().create_timer(5.0).timeout
-		boss_death()
-		# Delete until this
 	else:
 		is_boss_wave = false
 		print("normal wave")
@@ -80,15 +74,9 @@ func _deferred_endless_mode_next_wave():
 	#
 	# Call different function if desired
 	#
-	if (wave_number % 20 == 0):
+	if (wave_number % 10 == 0):
 		is_boss_wave = true
 		print("endless mode boss wave")
-		
-		# Do boss wave spawner here
-		# Delete this if the boss has been implemented
-		await get_tree().create_timer(5.0).timeout
-		boss_death()
-		# Delete until this
 	else:
 		is_boss_wave = false
 		print("endless mode normal wave")
@@ -101,7 +89,7 @@ func boss_death():
 	call_deferred("_deferred_boss_death")
 	
 func _deferred_boss_death():
-	if wave_number % 20 == 0:
+	if wave_number % 10 == 0 and is_boss_wave:
 		is_boss_wave = false
 		next_wave()
 

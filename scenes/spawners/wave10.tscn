@@ -1,0 +1,64 @@
+[gd_scene load_steps=6 format=3 uid="uid://dx3atu1srrws8"]
+
+[ext_resource type="PackedScene" uid="uid://bwdvfyyau5fr7" path="res://scenes/miscs/spawner.tscn" id="1_qje35"]
+[ext_resource type="PackedScene" uid="uid://boukdf54o6ah3" path="res://scenes/entities/enemy/skeleton.tscn" id="2_u7h3i"]
+[ext_resource type="PackedScene" uid="uid://md61e5egnwxd" path="res://scenes/entities/enemy/witch.tscn" id="3_ji2tr"]
+[ext_resource type="PackedScene" uid="uid://b648hqvqqssdh" path="res://scenes/entities/enemy/orc_zombie.tscn" id="4_tina0"]
+[ext_resource type="PackedScene" uid="uid://deq3chwil8wea" path="res://scenes/entities/enemy/hela.tscn" id="5_prepc"]
+
+[node name="Wave10" type="Node3D"]
+
+[node name="InitialSkeleteonSpawner" parent="." instance=ExtResource("1_qje35")]
+enemy_pack = ExtResource("2_u7h3i")
+total_spawn_number = 10
+total_batch = 1
+min_radius = 5
+max_radius = 15
+
+[node name="InitialWitchSpawner" parent="." instance=ExtResource("1_qje35")]
+enemy_pack = ExtResource("3_ji2tr")
+total_spawn_number = 10
+total_batch = 1
+min_radius = 15
+max_radius = 25
+origin = Vector3(0, 15, 0)
+
+[node name="InitialOrcZombieSpawner" parent="." instance=ExtResource("1_qje35")]
+enemy_pack = ExtResource("4_tina0")
+total_spawn_number = 30
+total_batch = 1
+min_radius = 5
+max_radius = 15
+
+[node name="NoiseSkeletonSpawner" parent="." instance=ExtResource("1_qje35")]
+enemy_pack = ExtResource("2_u7h3i")
+total_spawn_number = 60
+total_batch = 60
+delay_batch_spawn = 0.5
+min_radius = 10
+max_radius = 20
+
+[node name="NoiseWitchSpawner" parent="." instance=ExtResource("1_qje35")]
+enemy_pack = ExtResource("3_ji2tr")
+total_spawn_number = 30
+total_batch = 30
+delay_batch_spawn = 1.0
+min_radius = 15
+max_radius = 25
+origin = Vector3(0, 15, 0)
+
+[node name="NoiseOrcZombieSpawner" parent="." instance=ExtResource("1_qje35")]
+enemy_pack = ExtResource("4_tina0")
+total_spawn_number = 60
+total_batch = 30
+delay_batch_spawn = 1.0
+min_radius = 10
+max_radius = 20
+
+[node name="BossHelaSpawner" parent="." instance=ExtResource("1_qje35")]
+enemy_pack = ExtResource("5_prepc")
+total_spawn_number = 1
+total_batch = 1
+min_radius = 15
+max_radius = 25
+origin = Vector3(0, 15, 0)
