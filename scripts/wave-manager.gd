@@ -7,6 +7,7 @@ var is_boss_wave = false
 @export var multiplier: int = 0
 @export var game_ready = false
 @export var is_wave_halt = false
+@export var is_end_of_beta = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -55,6 +56,8 @@ func _deffered_next_wave():
 	elif (wave_number % 10 == 0):
 		is_boss_wave = true
 		print("boss wave")
+	elif (wave_number > 10):
+		is_end_of_beta = true
 	else:
 		is_boss_wave = false
 		print("normal wave")
