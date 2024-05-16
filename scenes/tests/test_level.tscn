@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://boukdf54o6ah3" path="res://scenes/entities/enemy/skeleton.tscn" id="1_7kduo"]
 [ext_resource type="Script" path="res://scripts/test_level.gd" id="1_l8x6j"]
-[ext_resource type="Texture2D" uid="uid://ckdcb0frxxd24" path="res://assets/textures/AllSkyFree_Sky_ClearBlueSky_Equirect.png" id="3_a7i6u"]
+[ext_resource type="Texture2D" uid="uid://odlveqijshum" path="res://assets/textures/AllSkyFree_Sky_ClearBlueSky_Equirect.png" id="3_a7i6u"]
 [ext_resource type="PackedScene" uid="uid://og50iljiyo3u" path="res://scenes/entities/test-entity.tscn" id="3_gluhh"]
 [ext_resource type="PackedScene" uid="uid://md61e5egnwxd" path="res://scenes/entities/enemy/witch.tscn" id="5_gexg4"]
 [ext_resource type="PackedScene" uid="uid://d1nvnbi1xcgl5" path="res://scenes/entities/terrain-lvl1.tscn" id="6_ycfeo"]
