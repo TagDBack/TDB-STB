@@ -15,10 +15,10 @@ func _physics_process(delta):
 	self.position += - self.transform.basis.z * speed * delta
 	
 func _enemy_on_body_entered(body_entered):
-	if body_entered is enemy:
+	if body_entered is Enemy:
 		body_entered.take_damage(damage)
 		self.queue_free()
 
 func _border_on_area_entered(area_entered):
-	if area_entered is enemy:
+	if area_entered is Enemy:
 		self.queue_free()

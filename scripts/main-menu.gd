@@ -15,9 +15,10 @@ func _ready():
 	
 	$QuitButton.connect("pressed", _on_quit_pressed)
 	$QuitButton.get_node("RichTextLabel").connect("meta_clicked", _on_meta_clicked)
-	
+
 func _on_new_game_pressed():
-	get_tree().change_scene_to_file("res://scenes/ui/ModeSelection.tscn")
+	#get_tree().change_scene_to_file("res://scenes/ui/ModeSelection.tscn")
+	GlobalFuncs_.change_main_scene("res://scenes/ui/ModeSelection.tscn")
 	
 func _on_meta_clicked(arg):
 	match arg:

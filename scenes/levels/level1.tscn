@@ -1,25 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://brxgcbxyerq6m"]
+[gd_scene load_steps=3 format=3 uid="uid://brxgcbxyerq6m"]
 
 [ext_resource type="PackedScene" uid="uid://c2phsj5rf5hvk" path="res://scenes/entities/Player.tscn" id="3_bmobu"]
 [ext_resource type="PackedScene" uid="uid://d1nvnbi1xcgl5" path="res://scenes/entities/terrain-lvl1.tscn" id="3_qx5xr"]
-[ext_resource type="PackedScene" uid="uid://eapxb2w7pn6k" path="res://scenes/entities/test-enemy.tscn" id="3_uw4wn"]
 
 [node name="level1" type="Node3D"]
 
 [node name="terrain" parent="." instance=ExtResource("3_qx5xr")]
 transform = Transform3D(40, 0, 0, 0, 40, 0, 0, 0, 40, 0, 0, 0)
-
-[node name="enemy" parent="." instance=ExtResource("3_uw4wn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.566, 11.6846, -0.644058)
-floor_stop_on_slope = false
-floor_constant_speed = true
-floor_max_angle = 3.14159
-
-[node name="enemy2" parent="." instance=ExtResource("3_uw4wn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.204991, 11.3684, 0.441069)
-floor_stop_on_slope = false
-floor_constant_speed = true
-floor_max_angle = 3.14159
 
 [node name="Player" parent="." instance=ExtResource("3_bmobu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)

@@ -28,7 +28,6 @@ size = Vector2(0.75, 0.75)
 orientation = 1
 
 [node name="Shield" type="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 script = ExtResource("1_q5urp")
 
 [node name="Area3D" type="Area3D" parent="."]
@@ -37,7 +36,6 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("BoxShape3D_d5y4y")
 
 [node name="Cooldown" type="Timer" parent="."]

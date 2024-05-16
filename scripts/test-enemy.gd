@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-class_name enemy
+class_name Enemy
 
 @export var health = 10
 @export var armor = 0
