@@ -7,14 +7,14 @@
 
 [node name="InitialSkeleteonSpawner" parent="." instance=ExtResource("1_nv3de")]
 enemy_pack = ExtResource("2_yp11g")
-total_spawn_number = 50
+total_spawn_number = 20
 total_batch = 1
 min_radius = 5
 max_radius = 15
 
 [node name="NoiseSkeletonSpawner" parent="." instance=ExtResource("1_nv3de")]
 enemy_pack = ExtResource("2_yp11g")
-total_spawn_number = 150
+total_spawn_number = 90
 total_batch = 30
 delay_batch_spawn = 1.0
 min_radius = 10

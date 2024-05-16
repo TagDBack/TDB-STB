@@ -12,8 +12,8 @@ func _deferred_new_wave(wave_number):
 	if wave_number == 1:
 		spawn("res://scenes/spawners/wave1.tscn")
 		assign_weapons()
-	elif wave_number == 2:
-		spawn("res://scenes/spawners/wave2.tscn")
+	elif wave_number >= 2 and wave_number <= 5:
+		spawn("res://scenes/spawners/wave" + str(wave_number) + ".tscn")
 	else:
 		pass
 
