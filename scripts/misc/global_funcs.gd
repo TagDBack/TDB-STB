@@ -17,6 +17,8 @@ var shake_speed = 0
 var shake_decay = 0
 var noise_i = 0
 
+var enemies_left = 0
+
 func _ready():
 	rng.randomize()
 	noise.seed = rng.randi()

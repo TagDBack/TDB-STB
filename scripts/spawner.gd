@@ -20,6 +20,7 @@ func _deferred_repeat():
 		self.queue_free()
 	else:
 		var number_spawn_now = floor(total_spawn_number / total_batch)
+		GlobalFuncs_.enemies_left += number_spawn_now
 		spawn(number_spawn_now)
 		total_spawn_number = total_spawn_number - number_spawn_now
 		total_batch = total_batch - 1

@@ -6,6 +6,7 @@ var is_boss_wave = false
 @export var wave_timer: Timer = null
 @export var multiplier: int = 0
 @export var game_ready = false
+@export var is_wave_halt = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -36,7 +37,10 @@ func next_wave():
 	if not game_ready:
 		await get_tree().create_timer(0.1).timeout
 		next_wave()
+	if GlobalFuncs_.enemies_left > 30:
+		call_deferred("_deferred_wave_halt")
 	else:
+		is_wave_halt = false
 		call_deferred("_deffered_next_wave")
 	
 func _deffered_next_wave():
@@ -63,6 +67,11 @@ func _deffered_next_wave():
 		
 		# Do normal wave spawner here
 		wave_timer.start()
+		
+func _deferred_wave_halt():
+	is_wave_halt = true
+	await get_tree().create_timer(0.3).timeout
+	next_wave()
 		
 func endless_mode_next_wave():
 	call_deferred("_deferred_endless_mode_next_wave")

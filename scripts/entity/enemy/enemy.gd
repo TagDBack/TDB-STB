@@ -52,13 +52,15 @@ func more_onready():
 	pass
 
 func take_damage(damage):
-	hp -= damage
-	knocked = true
-	if hp <= 0:
-		is_die = true
-		die()
+	if not is_die:
+		hp -= damage
+		knocked = true
+		if hp <= 0:
+			is_die = true
+			die()
 		
 func die():
+	GlobalFuncs_.enemies_left -= 1
 	#await get_tree().create_timer(.45).timeout
 	queue_free()
 
