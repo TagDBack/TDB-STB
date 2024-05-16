@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://deq3chwil8wea"]
 
 [ext_resource type="Script" path="res://scripts/entity/enemy/hela.gd" id="1_sk844"]
-[ext_resource type="Texture2D" uid="uid://dyte5s8j4uloo" path="res://icon.png" id="2_akt0m"]
+[ext_resource type="Texture2D" uid="uid://686xbik2ukqh" path="res://icon.png" id="2_akt0m"]
 [ext_resource type="PackedScene" uid="uid://hniqr0bofmgx" path="res://scenes/projectiles/projectile_hela.tscn" id="2_neeta"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ub3o2"]

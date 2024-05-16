@@ -2,9 +2,11 @@ extends CharacterBody3D
 
 class_name Enemy
 
+var is_die = false
 @export var hp: float = 1.0
 @export var atk: float = 1.0
 @export var speed: float = 1.0
+@export var knocked_constant: float = 1.0
 @export_range(-100.0, 100.0, 0.1) var kb_res: float = 0.0
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -35,12 +37,13 @@ func _physics_process(delta):
 	move_and_slide()
 
 func move():
-	dir = player.global_position - global_position
-	dir.y = 0
-	if !is_on_floor():
-		dir.y -= gravity
-	dir.normalized()
-	return dir * speed
+	if not is_die:
+		dir = player.global_position - global_position
+		dir.y = 0
+		if !is_on_floor():
+			dir.y -= gravity
+		dir.normalized()
+		return dir * speed
 
 func act():
 	pass
@@ -52,8 +55,12 @@ func take_damage(damage):
 	hp -= damage
 	knocked = true
 	if hp <= 0:
-		await get_tree().create_timer(.45).timeout
-		queue_free()
+		is_die = true
+		die()
+		
+func die():
+	#await get_tree().create_timer(.45).timeout
+	queue_free()
 
 func knockback(delta):
 	if knocked_dir == null:
@@ -63,4 +70,4 @@ func knockback(delta):
 		knocked_dir.y -= gravity
 	knocked_dir.normalized()
 	speed = lerp(speed, 0.0, delta*10)
-	return knocked_dir  * speed * (15 * (1-kb_res/100.0))
+	return knocked_dir  * speed * (15 * (1-kb_res/100.0)) * knocked_constant

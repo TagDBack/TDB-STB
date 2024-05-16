@@ -5,7 +5,7 @@ class_name bullet
 @onready var area_collision = $Area3D
 
 @export var speed = 20
-@export var damage = 10
+@export var damage = 20
 
 func _ready():
 	area_collision.body_entered.connect(_enemy_on_body_entered)

@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://md61e5egnwxd"]
 
 [ext_resource type="Script" path="res://scripts/entity/enemy/enemy_ranged.gd" id="1_tcbji"]
-[ext_resource type="Texture2D" uid="uid://dyte5s8j4uloo" path="res://icon.png" id="2_aarmr"]
+[ext_resource type="Texture2D" uid="uid://686xbik2ukqh" path="res://icon.png" id="2_aarmr"]
 [ext_resource type="PackedScene" uid="uid://inalq02ssqi2" path="res://scenes/projectiles/projectile_witch.tscn" id="2_nop2m"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_h0psh"]

@@ -41,7 +41,9 @@ func _process(delta):
 
 func get_player():
 	if player == null:
-		player = main_scene.get_node("CharacterBody3D")
+		player = main_scene.get_node("Player")
+		if player == null:
+			print("Player not found, Game crashes")
 		camera = player.get_node("Util").get_node("Camera3D")
 		camera_default_rotation = camera.get_rotation_degrees()
 	return player

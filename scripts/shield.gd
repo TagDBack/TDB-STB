@@ -10,11 +10,15 @@ extends melee_weapon
 #@onready var rotate_to = self.transform.basis
 #var is_rotating = false
 
+@onready var area_collision_shape = $Area3D/CollisionShape3D.shape
+@onready var area_collsion_shape_size_x = area_collision_shape.size.x
+@onready var area_collsion_shape_size_z = area_collision_shape.size.z
 @onready var cooldown = $Cooldown
 @onready var cooldown_sign = $CooldownSign
 
 var stretch_length = 0
 var stretch_speed = 15
+var stretch_size_multiply = 5
 @export var max_strecth = 2
 # From 0 to max_strecth
 
@@ -41,12 +45,16 @@ func _physics_process(delta):
 
 func _retracting(delta):
 	if outward:
+		area_collision_shape.size.x = stretch_size_multiply * area_collsion_shape_size_x
+		area_collision_shape.size.z = stretch_size_multiply * area_collsion_shape_size_z
 		if stretch_length != max_strecth:
 			stretch_length = min(max_strecth, stretch_length + stretch_speed * delta)
 			self.position.z = - stretch_length
 		else:
 			outward = false
 	else:
+		area_collision_shape.size.x = area_collsion_shape_size_x
+		area_collision_shape.size.z = area_collsion_shape_size_z
 		if stretch_length != 0:
 			stretch_length = max(0, stretch_length - stretch_speed * delta)
 			self.position.z = - stretch_length
@@ -62,9 +70,9 @@ func _on_cooldown_timeout():
 	#
 	#
 func _enemy_on_body_entered(body_entered):
-	if body_entered is enemy and is_action:
+	if body_entered is Enemy and is_action:
+		body_entered.knocked_constant = 3.0
 		body_entered.take_damage(damage)
-		body_entered.pushed_back()
 
 #func _bullet_on_body_entered(bullet_entered):
 	#if bullet_entered is enemy_bullet:

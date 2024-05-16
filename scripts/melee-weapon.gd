@@ -5,7 +5,7 @@ class_name melee_weapon
 @onready var area_collision = $Area3D
 
 @export var speed = 20
-@export var damage = 10
+@export var damage = 30
 
 @onready var origin_rotation = self.transform
 

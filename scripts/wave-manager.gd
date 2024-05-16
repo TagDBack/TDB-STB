@@ -5,9 +5,10 @@ var is_boss_wave = false
 @export var wave_number = 0
 @export var wave_timer: Timer = null
 @export var multiplier: int = 0
+@export var game_ready = false
 
 # Called when the node enters the scene tree for the first time.
-func _ready():	
+func _ready():
 	pass
 
 func start():
@@ -32,17 +33,22 @@ func _deferred_start():
 	next_wave()
 	
 func next_wave():
-	call_deferred("_deffered_next_wave")
+	if not game_ready:
+		await get_tree().create_timer(0.1).timeout
+		next_wave()
+	else:
+		call_deferred("_deffered_next_wave")
 	
 func _deffered_next_wave():
 	wave_number += 1
 	print(wave_number)
 	calculate_multiplier()
+	
 	SpawnManager.new_wave(wave_number)
 	
-	if (wave_number >= 16):
+	if (wave_number >= 61):
 		endless_mode_next_wave()
-	elif (wave_number % 5 == 0):
+	elif (wave_number % 20 == 0):
 		is_boss_wave = true
 		print("boss wave")
 		
@@ -65,7 +71,7 @@ func _deferred_endless_mode_next_wave():
 	#
 	# Call different function if desired
 	#
-	if (wave_number % 5 == 0):
+	if (wave_number % 20 == 0):
 		is_boss_wave = true
 		print("endless mode boss wave")
 		
@@ -81,11 +87,12 @@ func _deferred_endless_mode_next_wave():
 		# Do normal wave spawner here
 		wave_timer.start()
 
+# Call this function when the boss death
 func boss_death():
 	call_deferred("_deferred_boss_death")
 	
 func _deferred_boss_death():
-	if wave_number % 5 == 0:
+	if wave_number % 20 == 0:
 		is_boss_wave = false
 		next_wave()
 
