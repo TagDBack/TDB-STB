@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://cjn3q1k7qwt0y"]
+
+[ext_resource type="PackedScene" uid="uid://bwdvfyyau5fr7" path="res://scenes/miscs/spawner.tscn" id="1_4iet7"]
+[ext_resource type="PackedScene" uid="uid://md61e5egnwxd" path="res://scenes/entities/enemy/witch.tscn" id="3_py2jb"]
+[ext_resource type="PackedScene" uid="uid://b648hqvqqssdh" path="res://scenes/entities/enemy/orc_zombie.tscn" id="4_6erdv"]
+
+[node name="Wave7" type="Node3D"]
+
+[node name="InitialWitchSpawner" parent="." instance=ExtResource("1_4iet7")]
+enemy_pack = ExtResource("3_py2jb")
+total_spawn_number = 30
+total_batch = 1
+min_radius = 5
+max_radius = 15
+origin = Vector3(0, 15, 0)
+
+[node name="InitialOrcZombieSpawner" parent="." instance=ExtResource("1_4iet7")]
+enemy_pack = ExtResource("4_6erdv")
+total_spawn_number = 20
+total_batch = 1
+min_radius = 5
+max_radius = 15
+
+[node name="NoiseOrcZombieSpawner" parent="." instance=ExtResource("1_4iet7")]
+enemy_pack = ExtResource("4_6erdv")
+total_spawn_number = 30
+total_batch = 30
+delay_batch_spawn = 1.0
+min_radius = 10
+max_radius = 20
+
+[node name="NoiseWitchSpawner" parent="." instance=ExtResource("1_4iet7")]
+enemy_pack = ExtResource("3_py2jb")
+total_spawn_number = 60
+total_batch = 30
+delay_batch_spawn = 1.0
+min_radius = 15
+max_radius = 25
+origin = Vector3(0, 15, 0)

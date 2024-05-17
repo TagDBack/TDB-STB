@@ -1,7 +1,5 @@
 extends Node3D
 
-@export var player: CharacterBody3D = null
-
 @export var enemy_pack: PackedScene
 @export var total_spawn_number: int = 100
 @export var total_batch: int = 5
@@ -12,11 +10,23 @@ extends Node3D
 
 func _ready():
 	randomize()
-	scan_player()
 	repeat()
 
-func _setup(player):
-	self.player = player
+func repeat():
+	call_deferred("_deferred_repeat")
+
+func _deferred_repeat():
+	if total_batch == 0:
+		self.queue_free()
+	else:
+		var number_spawn_now = floor(total_spawn_number / total_batch)
+		GlobalFuncs_.enemies_left += number_spawn_now
+		spawn(number_spawn_now)
+		total_spawn_number = total_spawn_number - number_spawn_now
+		total_batch = total_batch - 1
+		
+		await get_tree().create_timer(delay_batch_spawn).timeout
+		repeat()
 
 func spawn(number_spawn_now):
 	call_deferred("_deferred_spawn", number_spawn_now)
@@ -33,32 +43,5 @@ func _deferred_spawn(number_spawn_now):
 		spawn_pos.z = spawn_pos.z + radius * sin(angle)
 		
 		spawned.global_position = spawn_pos
-		spawned.look_at(origin)
-		
-		if player != null:
-			spawned.player = player
-			spawned.isHunt = true
 		
 		get_parent().get_parent().add_child(spawned)
-
-func repeat():
-	call_deferred("_deferred_repeat")
-
-func _deferred_repeat():
-	if total_batch == 0:
-		self.queue_free()
-	else:
-		var number_spawn_now = floor(total_spawn_number / total_batch)
-		spawn(number_spawn_now)
-		total_spawn_number = total_spawn_number - number_spawn_now
-		total_batch = total_batch - 1
-		
-		await get_tree().create_timer(delay_batch_spawn).timeout
-		repeat()
-	
-func scan_player():
-	var list_player = get_tree().get_nodes_in_group("player")
-	if len(list_player) == 0:
-		player = null
-	else:
-		player = list_player[0]

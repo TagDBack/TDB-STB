@@ -15,8 +15,6 @@ extends melee_weapon
 
 func _ready():
 	area_collision.body_entered.connect(_enemy_on_body_entered)
-	speed = 20
-	damage = 10
 
 func _physics_process(delta):
 	if is_rotating:

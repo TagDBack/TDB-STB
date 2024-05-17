@@ -36,6 +36,7 @@ func _ready():
 	# Player only
 	max_slides = 18
 	add_to_group("player")
+	WaveManager.game_ready = true
 	
 	#call_deferred_thread_group("enemies")
 

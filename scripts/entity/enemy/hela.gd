@@ -54,3 +54,9 @@ func shoot_barrage():
 
 func _on_act_cooldown_timeout():
 	can_act = true
+	
+func die():
+	GlobalFuncs_.enemies_left -= 1
+	WaveManager.boss_death()
+	#await get_tree().create_timer(.45).timeout
+	queue_free()

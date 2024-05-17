@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://dgl1kf8ncufmq"]
+
+[ext_resource type="PackedScene" uid="uid://bwdvfyyau5fr7" path="res://scenes/miscs/spawner.tscn" id="1_tiirn"]
+[ext_resource type="PackedScene" uid="uid://boukdf54o6ah3" path="res://scenes/entities/enemy/skeleton.tscn" id="2_ri8q0"]
+
+[node name="Wave3" type="Node3D"]
+
+[node name="InitialSkeleteonSpawner" parent="." instance=ExtResource("1_tiirn")]
+enemy_pack = ExtResource("2_ri8q0")
+total_spawn_number = 50
+total_batch = 1
+min_radius = 5
+max_radius = 15
+
+[node name="NoiseSkeletonSpawner" parent="." instance=ExtResource("1_tiirn")]
+enemy_pack = ExtResource("2_ri8q0")
+total_spawn_number = 150
+total_batch = 30
+delay_batch_spawn = 1.0
+min_radius = 10
+max_radius = 20

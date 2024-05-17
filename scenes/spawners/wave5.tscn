@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://buufmvd30slp"]
+
+[ext_resource type="PackedScene" uid="uid://bwdvfyyau5fr7" path="res://scenes/miscs/spawner.tscn" id="1_ftfvv"]
+[ext_resource type="PackedScene" uid="uid://boukdf54o6ah3" path="res://scenes/entities/enemy/skeleton.tscn" id="2_j82xv"]
+[ext_resource type="PackedScene" uid="uid://b648hqvqqssdh" path="res://scenes/entities/enemy/orc_zombie.tscn" id="3_3qmx1"]
+
+[node name="Wave5" type="Node3D"]
+
+[node name="InitialSkeleteonSpawner" parent="." instance=ExtResource("1_ftfvv")]
+enemy_pack = ExtResource("2_j82xv")
+total_spawn_number = 10
+total_batch = 1
+min_radius = 5
+max_radius = 15
+
+[node name="InitialOrcZombieSpawner" parent="." instance=ExtResource("1_ftfvv")]
+enemy_pack = ExtResource("3_3qmx1")
+total_spawn_number = 15
+total_batch = 1
+min_radius = 5
+max_radius = 15
+
+[node name="NoiseSkeletonSpawner" parent="." instance=ExtResource("1_ftfvv")]
+enemy_pack = ExtResource("2_j82xv")
+total_spawn_number = 30
+total_batch = 30
+delay_batch_spawn = 1.0
+min_radius = 10
+max_radius = 20
+
+[node name="NoiseOrcZombieSpawner" parent="." instance=ExtResource("1_ftfvv")]
+enemy_pack = ExtResource("3_3qmx1")
+total_spawn_number = 30
+total_batch = 30
+delay_batch_spawn = 1.0
+min_radius = 10
+max_radius = 20

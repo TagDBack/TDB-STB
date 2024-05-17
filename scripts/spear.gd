@@ -12,8 +12,8 @@ extends melee_weapon
 
 var stretch_length = 0
 var stretch_speed = 15
-@export var max_strecth = 3
-# From 0 to max_strecth
+@export var max_stretch = 3
+# From 0 to max_stretch
 
 func _ready():
 	area_collision.body_entered.connect(_enemy_on_body_entered)
@@ -27,8 +27,8 @@ func _physics_process(delta):
 		change_visibility(true)
 	
 	if Input.is_action_pressed("action_melee"):
-		if stretch_length != max_strecth:
-			stretch_length = min(max_strecth, stretch_length + stretch_speed * delta)
+		if stretch_length != max_stretch:
+			stretch_length = min(max_stretch, stretch_length + stretch_speed * delta)
 			self.position.z = - stretch_length
 	else:
 		if stretch_length != 0:

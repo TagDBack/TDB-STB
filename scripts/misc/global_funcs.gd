@@ -17,6 +17,8 @@ var shake_speed = 0
 var shake_decay = 0
 var noise_i = 0
 
+var enemies_left = 0
+
 func _ready():
 	rng.randomize()
 	noise.seed = rng.randi()
@@ -41,13 +43,42 @@ func _process(delta):
 
 func get_player():
 	if player == null:
-		player = main_scene.get_node("CharacterBody3D")
+		player = main_scene.get_node("Player")
+		if player == null:
+			print("Player not found, Game crashes")
 		camera = player.get_node("Util").get_node("Camera3D")
 		camera_default_rotation = camera.get_rotation_degrees()
 	return player
 
 func get_main_scene():
 	return main_scene
+
+func change_main_scene(scene_path):
+	# This function will usually be called from a signal callback,
+	# or some other function in the current scene.
+	# Deleting the current scene at this point is
+	# a bad idea, because it may still be executing code.
+	# This will result in a crash or unexpected behavior.
+
+	# The solution is to defer the load to a later time, when
+	# we can be sure that no code from the current scene is running:
+	call_deferred("_deferred_change_main_scene", scene_path)
+
+func _deferred_change_main_scene(scene_path):
+	# It is now safe to remove the current scene.
+	main_scene.free()
+
+	# Load the new scene.
+	var s = ResourceLoader.load(scene_path)
+
+	# Instance the new scene.
+	main_scene = s.instantiate()
+
+	# Add it to the active scene, as child of root.
+	get_tree().root.add_child(main_scene)
+
+	# Optionally, to make it compatible with the SceneTree.change_scene_to_file() API.
+	get_tree().current_scene = main_scene
 
 # shake_strength = higher value -> larger deviation from the default rotation
 # shake_speed = how quickly the camera shakes

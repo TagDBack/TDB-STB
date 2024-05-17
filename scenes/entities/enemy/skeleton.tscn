@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://boukdf54o6ah3"]
 
 [ext_resource type="Script" path="res://scripts/entity/enemy/enemy_melee.gd" id="1_bg2gr"]
-[ext_resource type="Texture2D" uid="uid://dyte5s8j4uloo" path="res://icon.png" id="2_3o3h8"]
+[ext_resource type="Texture2D" uid="uid://686xbik2ukqh" path="res://icon.png" id="2_3o3h8"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n6k4p"]
 albedo_color = Color(0.43134, 0.43134, 0.43134, 1)
