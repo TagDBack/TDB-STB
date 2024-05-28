@@ -29,6 +29,8 @@ func _deferred_spawn(number_spawn_now):
 		var angle = randf_range(-2 * PI, 2 * PI)
 		var radius = randf_range(min_radius, max_radius)
 		
+		# Add the spawned node to the scene tree first
+		get_parent().get_parent().add_child(spawned)
 		spawn_pos.x = spawn_pos.x + radius * cos(angle)
 		spawn_pos.z = spawn_pos.z + radius * sin(angle)
 		
@@ -38,8 +40,6 @@ func _deferred_spawn(number_spawn_now):
 		if player != null:
 			spawned.player = player
 			spawned.isHunt = true
-		
-		get_parent().get_parent().add_child(spawned)
 
 func repeat():
 	call_deferred("_deferred_repeat")

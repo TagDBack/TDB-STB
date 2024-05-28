@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://d1nvnbi1xcgl5"]
 
 [ext_resource type="Shader" path="res://assets/textures/terrain-lvl1.gdshader" id="1_rw8gk"]
-[ext_resource type="Texture2D" uid="uid://bmjwmnktxe6cd" path="res://assets/textures/terrain-crater.jpg" id="2_gsu5j"]
+[ext_resource type="Texture2D" uid="uid://b8oekmr3c5uqb" path="res://assets/textures/terrain-crater.jpg" id="2_gsu5j"]
 [ext_resource type="Script" path="res://scripts/terrain.gd" id="3_4yxkr"]
-[ext_resource type="Image" uid="uid://ceq2v4y6tnm0p" path="res://assets/textures/terrain-crater-1.jpg" id="4_uipwu"]
+[ext_resource type="Texture2D" uid="uid://b6puju3er2gjh" path="res://assets/textures/terrain-crater-1.jpg" id="4_uipwu"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_h2a8w"]
 render_priority = 0
@@ -24,7 +24,7 @@ subdivide_depth = 64
 material_override = SubResource("ShaderMaterial_h2a8w")
 mesh = SubResource("PlaneMesh_yit7d")
 script = ExtResource("3_4yxkr")
-lvlimg = ExtResource("4_uipwu")
+texture = ExtResource("4_uipwu")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="terrain"]
 
