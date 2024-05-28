@@ -10,7 +10,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	container.get_node("Wave Number").text = "Wave " + str(WaveManager.wave_number)
 	if WaveManager.is_boss_wave:
 		container.get_node("Wave Time Left").text = "Defeat The Boss"

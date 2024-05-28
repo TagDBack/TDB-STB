@@ -7,14 +7,6 @@
 
 [node name="Spawner" parent="." instance=ExtResource("1_8ean5")]
 enemy_pack = ExtResource("2_jihlp")
-total_spawn_number = 50
-total_batch = 10
-delay_batch_spawn = 0.2
 
 [node name="Spawner2" parent="." instance=ExtResource("1_8ean5")]
 enemy_pack = ExtResource("2_jihlp")
-total_spawn_number = 300
-total_batch = 8
-delay_batch_spawn = 2.0
-min_radius = 2
-max_radius = 7

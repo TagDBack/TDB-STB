@@ -17,7 +17,7 @@ func _ready():
 	#colShape.shape = shape
 	#mesh.size = Vector2(chunk_size, chunk_size)
 	#
-	##print(level_img.load_path)
+	#print(level_img.load_path)
 	#update_terrain(height_ratio, colShape_size_ratio)
 	if texture:
 		print("Starting to load and process the image asynchronously.")

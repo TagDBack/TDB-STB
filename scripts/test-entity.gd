@@ -116,19 +116,16 @@ func moving(delta):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	var viewport_size = Vector2(get_viewport().content_scale_size)
-	var mouse_position = get_viewport().get_mouse_position()
-	var look_at_position = - viewport_size / 2 + mouse_position
-	
-	#print(isLookMouse)
 	if isLookMouse:
-		$Entity.look_at(Vector3(self.position.x + look_at_position.x, self.position.y, self.position.z + look_at_position.y))
-	elif velocity.length() > 0:
-		$Entity.look_at(velocity + position)
+		var mouse_position = get_viewport().get_mouse_position()
+		var target_position = self.to_local(Vector3(mouse_position.x, 0, mouse_position.y))
+		$Entity.look_at(target_position, Vector3.UP)
+	elif velocity.length_squared() > 0:
+		$Entity.look_at(velocity, Vector3.UP)
 	
-	if velocity.length() > baseSpeed*sRate/2:
+	if velocity.length() > baseSpeed * sRate / 2:
 		$pointer.visible = true
-		$pointer.look_at(velocity + position)
+		$pointer.look_at(velocity, Vector3.UP)
 	else:
 		$pointer.visible = false
 

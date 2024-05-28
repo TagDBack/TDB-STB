@@ -15,7 +15,7 @@ var is_rotating = false
 func _ready():
 	area_collision.body_entered.connect(_enemy_on_body_entered)
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	pass
 
 func change_visibility(trufals):
