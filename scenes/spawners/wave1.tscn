@@ -15,6 +15,5 @@ max_radius = 10
 enemy_pack = ExtResource("2_xtc8n")
 total_spawn_number = 60
 total_batch = 30
-delay_batch_spawn = 1.0
 min_radius = 2
 max_radius = 7
