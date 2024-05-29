@@ -1,15 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://bi30ydvmuhf0q"]
+[gd_scene load_steps=6 format=3 uid="uid://bi30ydvmuhf0q"]
 
 [ext_resource type="Shader" path="res://assets/textures/test-terrain.gdshader" id="1_f1xo0"]
-[ext_resource type="Texture2D" uid="uid://ddpgoj8idkjaw" path="res://assets/textures/test-terrain2.jpg" id="3_t0ctl"]
 [ext_resource type="Script" path="res://scripts/terrain.gd" id="4_vgpit"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_h2a8w"]
 render_priority = 0
 shader = ExtResource("1_f1xo0")
 shader_parameter/heightmap_ratio = 1.0
-shader_parameter/_a = ExtResource("3_t0ctl")
-shader_parameter/heightmap = ExtResource("3_t0ctl")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_yit7d"]
 subdivide_width = 64

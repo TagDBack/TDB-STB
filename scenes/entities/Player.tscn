@@ -1,9 +1,9 @@
 [gd_scene load_steps=11 format=3 uid="uid://c2phsj5rf5hvk"]
 
 [ext_resource type="Script" path="res://scripts/test-entity.gd" id="1_co6gj"]
-[ext_resource type="Texture2D" uid="uid://7a8cah08xg3g" path="res://assets/objects/2d/Classic 100/item82.png" id="2_rm2qc"]
-[ext_resource type="Texture2D" uid="uid://dlibm2h5t0o0l" path="res://assets/objects/2d/Classic 100/item88.png" id="3_c7j82"]
-[ext_resource type="PackedScene" uid="uid://jj3g4xpldjeo" path="res://assets/objects/3d/Test-tv/scene.gltf" id="4_8bnxy"]
+[ext_resource type="Texture2D" uid="uid://dbwblm8eimkgr" path="res://assets/objects/2d/Classic 100/item82.png" id="2_rm2qc"]
+[ext_resource type="Texture2D" uid="uid://cq4cyho80ay7m" path="res://assets/objects/2d/Classic 100/item88.png" id="3_c7j82"]
+[ext_resource type="PackedScene" uid="uid://lwpqpcomo7ls" path="res://assets/objects/3d/Test-tv/scene.gltf" id="4_8bnxy"]
 [ext_resource type="PackedScene" uid="uid://dswh3o5ta0a16" path="res://scenes/entities/ranged-weapon/test-ranged-weapon.tscn" id="5_l2nys"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6fdif"]

@@ -1,9 +1,9 @@
 [gd_scene load_steps=12 format=3 uid="uid://og50iljiyo3u"]
 
-[ext_resource type="PackedScene" uid="uid://jj3g4xpldjeo" path="res://assets/objects/3d/Test-tv/scene.gltf" id="1"]
+[ext_resource type="PackedScene" uid="uid://lwpqpcomo7ls" path="res://assets/objects/3d/Test-tv/scene.gltf" id="1"]
 [ext_resource type="Script" path="res://scripts/test-entity.gd" id="2"]
-[ext_resource type="Texture2D" uid="uid://dlibm2h5t0o0l" path="res://assets/objects/2d/Classic 100/item88.png" id="2_2yxxy"]
-[ext_resource type="Texture2D" uid="uid://7a8cah08xg3g" path="res://assets/objects/2d/Classic 100/item82.png" id="2_tkrfy"]
+[ext_resource type="Texture2D" uid="uid://cq4cyho80ay7m" path="res://assets/objects/2d/Classic 100/item88.png" id="2_2yxxy"]
+[ext_resource type="Texture2D" uid="uid://dbwblm8eimkgr" path="res://assets/objects/2d/Classic 100/item82.png" id="2_tkrfy"]
 [ext_resource type="PackedScene" uid="uid://dsxl300x5qfm2" path="res://scenes/entities/melee-weapon/shield.tscn" id="6_0hqum"]
 [ext_resource type="PackedScene" uid="uid://dswh3o5ta0a16" path="res://scenes/entities/ranged-weapon/test-ranged-weapon.tscn" id="6_g3j2n"]
 
